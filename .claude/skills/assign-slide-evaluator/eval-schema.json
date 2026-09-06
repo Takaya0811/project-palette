@@ -1,0 +1,22 @@
+{
+  "version": "1",
+  "skill": "assign-slide-evaluator",
+  "score_field": "quality.overall",
+  "breakdown_keys": [
+    {"key": "overflow", "label": "はみ出し・オーバーフロー", "threshold": 18, "weight": 25},
+    {"key": "layout", "label": "レイアウト・余白", "threshold": 11, "weight": 15},
+    {"key": "readability", "label": "可読性", "threshold": 11, "weight": 15},
+    {"key": "density", "label": "情報密度", "threshold": 11, "weight": 15},
+    {"key": "unity", "label": "視覚的統一感", "threshold": 7, "weight": 10},
+    {"key": "delivery", "label": "伝達力", "threshold": 14, "weight": 20}
+  ],
+  "extras": {
+    "feedback": "required",
+    "passed": "required",
+    "evaluator_skill": "required"
+  },
+  "passing_rule": "score >= 90",
+  "ref": null,
+  "rubric": null,
+  "notes": "score 90 以上を合格とする"
+}

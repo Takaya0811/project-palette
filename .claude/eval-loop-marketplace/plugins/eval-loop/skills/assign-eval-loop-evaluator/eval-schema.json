@@ -1,0 +1,17 @@
+{
+  "version": "1",
+  "skill": "assign-eval-loop-evaluator",
+  "score_field": "quality.overall",
+  "breakdown_keys": [],
+  "breakdown_keys_source": "criteria_argument",
+  "extras": {
+    "plan_implementation": "supplemental",
+    "feedback": "required",
+    "passed": "required",
+    "evaluator_skill": "required"
+  },
+  "passing_rule": "score >= threshold",
+  "ref": null,
+  "rubric": null,
+  "notes": "汎用 evaluator。breakdown_keys は state.json の criteria 引数から動的生成 (空配列 = 動的を意味する)。固定キーを持つ domain 固有 evaluator は breakdown_keys に項目を並べる"
+}

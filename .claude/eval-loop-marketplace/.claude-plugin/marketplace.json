@@ -1,0 +1,16 @@
+{
+  "name": "eval-loop",
+  "description": "eval-loop primitive marketplace — 品質ループ (serial / fork / parallel) と generator/evaluator (single / multi / debate)",
+  "owner": {
+    "name": "Masa",
+    "email": "bondai2025@gmail.com"
+  },
+  "plugins": [
+    {
+      "name": "eval-loop",
+      "source": "./plugins/eval-loop",
+      "version": "0.1.0",
+      "description": "品質スコアが目標に達するまで自律ループで改善する eval-loop primitive"
+    }
+  ]
+}

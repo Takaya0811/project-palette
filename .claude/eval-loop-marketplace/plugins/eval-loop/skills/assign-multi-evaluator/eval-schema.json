@@ -1,0 +1,18 @@
+{
+  "version": "1",
+  "skill": "assign-multi-evaluator",
+  "score_field": "quality.overall",
+  "breakdown_keys": [],
+  "breakdown_keys_source": "sub_evaluator_union",
+  "extras": {
+    "plan_implementation": "supplemental",
+    "feedback": "required",
+    "passed": "required",
+    "evaluator_skill": "required",
+    "ensemble": "required"
+  },
+  "passing_rule": "score >= threshold",
+  "ref": null,
+  "rubric": null,
+  "notes": "2〜5 個の sub-evaluator を直列 dispatch して保守的に集約する dispatcher。自身の breakdown は sub-eval の quality.breakdown の和集合 (動的)。ensemble メタデータ (perspectives / aggregation / veto_members / disagreement_severity) を拡張に格納。perspective.role=veto の member は平均に入れず、不合格時に final_score を threshold-1 へ cap する gate (Phase 4.5)。cap を score に焼き込むので passing_rule (score>=threshold) のままで gate が run-eval-loop に効く。role 省略は score 扱いで既存挙動不変"
+}

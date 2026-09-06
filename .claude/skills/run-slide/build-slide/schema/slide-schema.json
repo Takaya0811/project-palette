@@ -1,0 +1,191 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Marp Slide Schema",
+  "description": "ブロック構成型のMarpスライドスキーマ。各スライドはブロックの配列で、自由に組み合わせ可能。",
+  "type": "object",
+  "required": ["slides"],
+  "additionalProperties": false,
+  "properties": {
+    "theme": {
+      "type": "string",
+      "enum": ["kanso", "prisma", "abyss", "tabula", "sumi"],
+      "default": "kanso",
+      "description": "テーマ名。省略時はkanso"
+    },
+    "paginate": {
+      "type": "boolean",
+      "default": true,
+      "description": "ページ番号表示（グローバル）"
+    },
+    "slides": {
+      "type": "array",
+      "description": "スライドの配列",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/slide" }
+    }
+  },
+  "$defs": {
+    "slide": {
+      "type": "object",
+      "description": "1枚のスライド。blocksにコンテンツブロックを自由に並べる",
+      "required": ["blocks"],
+      "additionalProperties": false,
+      "properties": {
+        "class": {
+          "type": "string",
+          "description": "CSSクラス（lead, full-image 等）"
+        },
+        "paginate": {
+          "type": "boolean",
+          "description": "このスライドのページ番号表示を上書き"
+        },
+        "blocks": {
+          "type": "array",
+          "description": "コンテンツブロックの配列。自由に組み合わせ可能",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/block" }
+        }
+      }
+    },
+    "block": {
+      "oneOf": [
+        { "$ref": "#/$defs/h1" },
+        { "$ref": "#/$defs/h2" },
+        { "$ref": "#/$defs/h3" },
+        { "$ref": "#/$defs/text" },
+        { "$ref": "#/$defs/list" },
+        { "$ref": "#/$defs/olist" },
+        { "$ref": "#/$defs/table" },
+        { "$ref": "#/$defs/code" },
+        { "$ref": "#/$defs/quote" },
+        { "$ref": "#/$defs/image" },
+        { "$ref": "#/$defs/br" }
+      ]
+    },
+    "br": {
+      "type": "object",
+      "description": "空行スペーサー。スライド内の縦方向の余白を作る",
+      "required": ["type"],
+      "additionalProperties": false,
+      "properties": {
+        "type": { "const": "br" },
+        "count": { "type": "integer", "default": 1, "minimum": 1, "maximum": 3, "description": "改行数（1-3）" }
+      }
+    },
+    "h1": {
+      "type": "object",
+      "required": ["type", "text"],
+      "additionalProperties": false,
+      "properties": {
+        "type": { "const": "h1" },
+        "text": { "type": "string" }
+      }
+    },
+    "h2": {
+      "type": "object",
+      "required": ["type", "text"],
+      "additionalProperties": false,
+      "properties": {
+        "type": { "const": "h2" },
+        "text": { "type": "string" }
+      }
+    },
+    "h3": {
+      "type": "object",
+      "required": ["type", "text"],
+      "additionalProperties": false,
+      "properties": {
+        "type": { "const": "h3" },
+        "text": { "type": "string" }
+      }
+    },
+    "text": {
+      "type": "object",
+      "description": "段落テキスト。インラインMarkdown可",
+      "required": ["type", "text"],
+      "additionalProperties": false,
+      "properties": {
+        "type": { "const": "text" },
+        "text": { "type": "string" }
+      }
+    },
+    "list": {
+      "type": "object",
+      "description": "箇条書きリスト。インラインMarkdown可",
+      "required": ["type", "items"],
+      "additionalProperties": false,
+      "properties": {
+        "type": { "const": "list" },
+        "items": {
+          "type": "array",
+          "items": { "type": "string" },
+          "minItems": 1
+        }
+      }
+    },
+    "olist": {
+      "type": "object",
+      "description": "番号付きリスト。インラインMarkdown可",
+      "required": ["type", "items"],
+      "additionalProperties": false,
+      "properties": {
+        "type": { "const": "olist" },
+        "items": {
+          "type": "array",
+          "items": { "type": "string" },
+          "minItems": 1
+        }
+      }
+    },
+    "table": {
+      "type": "object",
+      "required": ["type", "headers", "rows"],
+      "additionalProperties": false,
+      "properties": {
+        "type": { "const": "table" },
+        "headers": {
+          "type": "array",
+          "items": { "type": "string" },
+          "minItems": 2
+        },
+        "rows": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "minItems": 1
+        }
+      }
+    },
+    "code": {
+      "type": "object",
+      "required": ["type", "code"],
+      "additionalProperties": false,
+      "properties": {
+        "type": { "const": "code" },
+        "language": { "type": "string", "default": "" },
+        "code": { "type": "string" }
+      }
+    },
+    "quote": {
+      "type": "object",
+      "required": ["type", "text"],
+      "additionalProperties": false,
+      "properties": {
+        "type": { "const": "quote" },
+        "text": { "type": "string" }
+      }
+    },
+    "image": {
+      "type": "object",
+      "required": ["type", "src"],
+      "additionalProperties": false,
+      "properties": {
+        "type": { "const": "image" },
+        "src": { "type": "string", "description": "画像パスまたはURL" },
+        "position": { "type": "string", "default": "contain", "description": "Marp bg構文。full-image: 省略 or 'contain'。inline: 'right:40%' 等（containは自動付与される）。coverが必要な場合のみ明示的に 'cover right:40%' と書く" }
+      }
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "eval-loop",
+  "version": "0.1.0",
+  "description": "品質スコアが目標に達するまで自律ループで改善する eval-loop primitive。serial / fork / parallel ループ + generator/evaluator (single / multi / debate) を提供。",
+  "author": {
+    "name": "Masa",
+    "email": "bondai2025@gmail.com"
+  },
+  "license": "MIT",
+  "keywords": [
+    "eval-loop",
+    "agent-thinking",
+    "self-improvement",
+    "consensus"
+  ]
+}

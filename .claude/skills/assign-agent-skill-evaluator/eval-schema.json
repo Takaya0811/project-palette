@@ -1,0 +1,21 @@
+{
+  "version": "1",
+  "skill": "assign-agent-skill-evaluator",
+  "score_field": "quality.overall",
+  "breakdown_keys": [
+    {"key": "axis_consistency", "label": "4 軸 (A/B/C/Role) 整合性", "threshold": 15, "weight": 25},
+    {"key": "prefix_derivation_compliance", "label": "prefix 導出合致 (決定木)", "threshold": 15, "weight": 25},
+    {"key": "frontmatter_compliance", "label": "v3 frontmatter 準拠 (base/pair/kind)", "threshold": 15, "weight": 25},
+    {"key": "common_rules_compliance", "label": "共通ルール準拠 (Less is More 等)", "threshold": 15, "weight": 25}
+  ],
+  "extras": {
+    "plan_implementation": "supplemental",
+    "feedback": "required",
+    "passed": "required",
+    "evaluator_skill": "required"
+  },
+  "passing_rule": "all_dimensions_passed AND score >= threshold",
+  "ref": "ref-agent-skill",
+  "rubric": null,
+  "notes": "ref-agent-skill v3 taxonomy (4 軸 + 5 prefix + frontmatter modifier) 4 観点固定キー。RUBRIC.md は未整備のため SKILL.md §採点観点の定義 を真値とする"
+}

@@ -1,0 +1,95 @@
+{
+  "theme": "kanso",
+  "slides": [
+    {
+      "class": "lead",
+      "paginate": false,
+      "blocks": [
+        { "type": "h1", "text": "Less, but better" },
+        { "type": "text", "text": "機能的デザインの10原則" }
+      ]
+    },
+    {
+      "blocks": [
+        { "type": "h2", "text": "アジェンダ" },
+        { "type": "list", "items": [
+          "良いデザインは革新的である",
+          "良いデザインは実用的である",
+          "良いデザインは美的である"
+        ]}
+      ]
+    },
+    {
+      "blocks": [
+        { "type": "h2", "text": "デザイン原則" },
+        { "type": "h3", "text": "CORE PRINCIPLE" },
+        { "type": "list", "items": [
+          "**誠実さ**: 製品を実際より優れたものに見せない",
+          "`控えめ`: 装飾ではなく道具である",
+          "できるだけ少なく、しかし必要十分に"
+        ]}
+      ]
+    },
+    {
+      "blocks": [
+        { "type": "h2", "text": "コスト一覧" },
+        { "type": "table", "headers": ["ツール", "型", "月額", "備考"], "rows": [
+          ["Codex", "CLI", "$20/月", "ChatGPT Pro。破格"],
+          ["Claude Code", "CLI", "$100〜200/月", "Pro or Max"],
+          ["Antigravity", "IDE", "$249.99/月", "AI Ultra。クレジット制"]
+        ]},
+        { "type": "list", "items": [
+          "コスパでも **CLI型が圧倒的に有利**",
+          "ただし **コストだけで選ぶべきではない**",
+          "本質は「自律性」と「インターフェースの薄さ」"
+        ]}
+      ]
+    },
+    {
+      "blocks": [
+        { "type": "h3", "text": "「なくてはならないもの」" },
+        { "type": "h3", "text": "ではなく" },
+        { "type": "h1", "text": "「なくしていかなければならないもの」" },
+        { "type": "list", "items": [
+          "今すぐ全部なくせるわけじゃない",
+          "でも **方向性として** 自律性を最大化するべき"
+        ]}
+      ]
+    },
+    {
+      "blocks": [
+        { "type": "h2", "text": "設計思想" },
+        { "type": "code", "language": "javascript", "code": "// Design Principles\nconst design = {\n  innovative: true,\n  useful: true,\n  decoration: false\n};" },
+        { "type": "quote", "text": "少なく、しかし良く" }
+      ]
+    },
+    {
+      "blocks": [
+        { "type": "h2", "text": "形態は機能に従う" },
+        { "type": "image", "src": "./assets/product-photo.png", "position": "right:40%" },
+        { "type": "list", "items": [
+          "**機能**が先、装飾は後",
+          "素材の`正直な`表現",
+          "ユーザーの手に馴染むこと"
+        ]}
+      ]
+    },
+    {
+      "blocks": [
+        { "type": "h2", "text": "まとめ" },
+        { "type": "olist", "items": [
+          "**少なく**、しかし良く",
+          "[機能](#)が形を決定する",
+          "良いデザインは`控えめ`である"
+        ]}
+      ]
+    },
+    {
+      "class": "full-image",
+      "paginate": false,
+      "blocks": [
+        { "type": "image", "src": "./assets/product-gallery.png" }
+      ]
+    }
+  ]
+}

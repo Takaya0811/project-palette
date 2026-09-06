@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marp Theme Preview - Prisma</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&family=Quicksand:wght@400;600;700&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: #e5e5e5; font-family: 'Noto Sans JP', sans-serif; padding: 40px; }
+
+.theme-header { text-align: center; margin-bottom: 40px; }
+.theme-header h1 { font-size: 32px; color: #333; margin-bottom: 8px; }
+.theme-header p { font-size: 16px; color: #666; }
+.theme-header .badge { display: inline-block; background: #2a2a2a; color: #f4efe6; padding: 4px 16px; border-radius: 20px; font-size: 14px; margin-top: 8px; }
+.theme-header .designer-quote { font-style: italic; color: #888; font-size: 14px; margin-top: 12px; }
+
+.slides-container { display: flex; flex-wrap: wrap; gap: 40px; justify-content: center; }
+.slide-wrapper { position: relative; }
+.slide-wrapper .slide-label { text-align: center; font-size: 14px; color: #666; margin-bottom: 8px; }
+
+/* =============================================
+   Prisma — 分光
+   - ウォームクリーム地
+   - ミュートサーモン / グレイッシュブルー
+   - 制御されたカラーブロック
+   - フラットカラーのみ、グラデーション一切なし
+   ============================================= */
+
+.slide {
+  width: 960px; height: 540px;
+  background-color: #f4efe6;
+  color: #2a2a2a;
+  font-family: 'Quicksand', 'Noto Sans JP', sans-serif;
+  font-weight: 400; box-sizing: border-box;
+  position: relative; line-height: 1.7; font-size: 22px; padding: 56px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+  overflow: hidden; transform: scale(0.6); transform-origin: top left;
+}
+
+/* カラーブロックバー（ストリップ風） */
+.slide::before {
+  content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 10px;
+  /* 5色フラットブロック */
+  background:
+    linear-gradient(90deg,
+      #d4654a 0%, #d4654a 20%,
+      #5b8ec2 20%, #5b8ec2 40%,
+      #e8b44c 40%, #e8b44c 60%,
+      #6aab7b 60%, #6aab7b 80%,
+      #2a2a2a 80%, #2a2a2a 100%
+    );
+}
+
+.slide h1, .slide h2, .slide h3 { font-weight: 700; color: #2a2a2a; margin: 0; padding: 0; }
+.slide h1 {
+  font-size: 72px; line-height: 1.1; text-align: center;
+  color: #2a2a2a;
+}
+.slide h2 { position: absolute; top: 40px; left: 56px; right: 56px; font-size: 42px; padding-bottom: 16px; text-align: center; }
+.slide h2::after { content: ''; position: absolute; left: 50%; transform: translateX(-50%); bottom: 4px; width: 48px; height: 4px; background-color: #d4654a; }
+.slide h3 { color: #d4654a; font-size: 26px; margin-top: 28px; margin-bottom: 12px; font-weight: 600; }
+
+.slide ul, .slide ol { padding-left: 32px; }
+.slide li { margin-bottom: 12px; font-size: 24px; }
+.slide li::marker { color: #d4654a; }
+
+.slide .footer-bar { position: absolute; left: 0; right: 0; bottom: 0; height: 10px;
+  background:
+    linear-gradient(90deg,
+      #d4654a 0%, #d4654a 20%,
+      #5b8ec2 20%, #5b8ec2 40%,
+      #e8b44c 40%, #e8b44c 60%,
+      #6aab7b 60%, #6aab7b 80%,
+      #2a2a2a 80%, #2a2a2a 100%
+    );
+}
+
+/* タイトルスライド：黒背景 + さりげないカラーアクセント */
+.slide.lead {
+  background-color: #222; color: #f4efe6;
+  display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
+}
+/* 左端に細いカラーストライプ */
+.slide.lead::before {
+  content: ''; position: absolute; top: 0; left: 0; width: 8px; height: 100%;
+  background:
+    linear-gradient(180deg,
+      #d4654a 0%, #d4654a 25%,
+      #5b8ec2 25%, #5b8ec2 50%,
+      #e8b44c 50%, #e8b44c 75%,
+      #6aab7b 75%, #6aab7b 100%
+    );
+  z-index: 0;
+}
+/* 下端にも同じカラーバー */
+.slide.lead::after {
+  content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 8px;
+  background:
+    linear-gradient(90deg,
+      #d4654a 0%, #d4654a 25%,
+      #5b8ec2 25%, #5b8ec2 50%,
+      #e8b44c 50%, #e8b44c 75%,
+      #6aab7b 75%, #6aab7b 100%
+    );
+  z-index: 0;
+}
+.slide.lead > * { position: relative; z-index: 1; }
+.slide.lead .footer-bar { display: none; }
+.slide.lead h1 { color: #f4efe6; margin-bottom: 16px; font-size: 72px; text-align: center; }
+.slide.lead p { font-size: 28px; color: #f4efe6; opacity: 0.6; font-weight: 300; }
+
+.slide .content-area { margin-top: 112px; }
+
+.slide strong { color: #d4654a; font-weight: 700; }
+.slide code { background-color: #ebe5d9; color: #2a2a2a; padding: 3px 10px; border-radius: 4px; font-family: 'Menlo', 'Consolas', monospace; font-size: 0.85em; }
+
+.slide pre {
+  background-color: #2a2a2a; color: #f4efe6; padding: 16px 20px;
+  border-radius: 4px; font-family: 'Menlo', 'Consolas', monospace;
+  font-size: 16px; line-height: 1.6; overflow-x: auto;
+  border-left: 4px solid #d4654a;
+}
+.slide pre .keyword { color: #d4654a; }
+.slide pre .string { color: #e8b44c; }
+.slide pre .comment { color: #7a7570; }
+.slide pre .func { color: #5b8ec2; }
+
+.slide blockquote {
+  border-left: 4px solid #5b8ec2;
+  padding: 12px 20px; margin: 16px 0;
+  background-color: #ebe5d9; color: #555;
+  font-style: normal;
+}
+
+.slide table { border-collapse: collapse; width: 100%; margin-top: 8px; }
+.slide th { background-color: #2a2a2a; color: #f4efe6; padding: 10px 16px; text-align: left; font-weight: 600; }
+.slide td { padding: 8px 16px; border-bottom: 1px solid #ddd5c8; }
+.slide tr:nth-child(even) { background-color: #ebe5d9; }
+
+.slide ol { padding-left: 32px; }
+.slide ol li::marker { color: #5b8ec2; font-weight: 700; }
+.slide a { color: #5b8ec2; text-decoration: none; font-weight: 600; }
+.slide a:hover { border-bottom: 2px solid #5b8ec2; }
+
+.slide.full-image { padding: 0; }
+.slide.full-image svg { width: 100%; height: 100%; display: block; }
+
+.slide .split-layout { display: flex; gap: 24px; height: calc(100% - 112px); margin-top: 112px; align-items: center; }
+.slide .split-text { flex: 1; }
+.slide .split-image { flex: 0 0 40%; height: 100%; border-radius: 4px; overflow: hidden; display: flex; align-items: center; justify-content: center; background-color: #ebe5d9; }
+
+.color-palette { display: flex; gap: 16px; justify-content: center; margin-top: 30px; flex-wrap: wrap; }
+.color-swatch { text-align: center; }
+.color-swatch .swatch { width: 60px; height: 60px; border-radius: 4px; border: 2px solid #ddd; margin-bottom: 4px; }
+.color-swatch .label { font-size: 11px; color: #666; }
+.color-swatch .value { font-size: 11px; color: #999; font-family: monospace; }
+
+.css-vars { background: #1e1e1e; color: #d4d4d4; padding: 20px; border-radius: 8px; font-family: 'Fira Code', monospace; font-size: 13px; line-height: 1.8; max-width: 700px; margin: 30px auto 0; }
+.css-vars .prop { color: #9cdcfe; }
+.css-vars .val { color: #ce9178; }
+.css-vars .comment { color: #6a9955; }
+</style>
+</head>
+<body>
+
+<div class="theme-header">
+  <h1>Prisma — 分光</h1>
+  <p>一筋の光が多様な色彩へと分かれる。多元性の歓び</p>
+  <span class="badge">theme-prisma.css</span>
+  <div class="designer-quote">"一は多であり、多は一である" — 華厳経</div>
+</div>
+
+<div class="color-palette">
+  <div class="color-swatch"><div class="swatch" style="background:#f4efe6;"></div><div class="label">Cream</div><div class="value">#f4efe6</div></div>
+  <div class="color-swatch"><div class="swatch" style="background:#2a2a2a;"></div><div class="label">Charcoal</div><div class="value">#2a2a2a</div></div>
+  <div class="color-swatch"><div class="swatch" style="background:#d4654a;"></div><div class="label">Burnt Coral</div><div class="value">#d4654a</div></div>
+  <div class="color-swatch"><div class="swatch" style="background:#5b8ec2;"></div><div class="label">Muted Blue</div><div class="value">#5b8ec2</div></div>
+  <div class="color-swatch"><div class="swatch" style="background:#e8b44c;"></div><div class="label">Mustard</div><div class="value">#e8b44c</div></div>
+  <div class="color-swatch"><div class="swatch" style="background:#6aab7b;"></div><div class="label">Sage</div><div class="value">#6aab7b</div></div>
+</div>
+
+<div class="slides-container">
+  <!-- Slide 1: Title (coral bg) -->
+  <div class="slide-wrapper">
+    <div class="slide-label">Slide 1 - タイトル (Black + Color Blocks)</div>
+    <div style="width:576px;height:324px;overflow:hidden;">
+      <div class="slide lead">
+        <h1>Digital Pop</h1>
+        <p>世界を変えるデザイン</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 2: Agenda (cream bg) -->
+  <div class="slide-wrapper">
+    <div class="slide-label">Slide 2 - アジェンダ (Cream)</div>
+    <div style="width:576px;height:324px;overflow:hidden;">
+      <div class="slide">
+        <h2>アジェンダ</h2>
+        <div class="content-area">
+          <ul>
+            <li>ポップデザインの可能性</li>
+            <li>有機的フォルムの美</li>
+            <li>カラーの爆発力</li>
+          </ul>
+        </div>
+        <div class="footer-bar"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 3: Content with subheading -->
+  <div class="slide-wrapper">
+    <div class="slide-label">Slide 3 - コンテンツ (h3 + strong + code)</div>
+    <div style="width:576px;height:324px;overflow:hidden;">
+      <div class="slide">
+        <h2>Pop Philosophy</h2>
+        <div class="content-area">
+          <h3>Design for Everyone</h3>
+          <ul>
+            <li><strong>色</strong>は感情を直接動かす</li>
+            <li><code>有機的曲線</code>が人を惹きつける</li>
+            <li>デザインは民主的であるべき</li>
+          </ul>
+        </div>
+        <div class="footer-bar"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 4: Table -->
+  <div class="slide-wrapper">
+    <div class="slide-label">Slide 4 - テーブル</div>
+    <div style="width:576px;height:324px;overflow:hidden;">
+      <div class="slide">
+        <h2>プロダクト比較</h2>
+        <div class="content-area">
+          <table>
+            <tr><th>プロダクト</th><th>素材</th><th>カラー</th></tr>
+            <tr><td>Bobble Bottle</td><td>BPAフリー樹脂</td><td><strong>コーラル</strong></td></tr>
+            <tr><td>Method Soap</td><td>再生プラスチック</td><td>セージ</td></tr>
+            <tr><td>Umbra Trash</td><td>ポリプロピレン</td><td>マスタード</td></tr>
+          </table>
+        </div>
+        <div class="footer-bar"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 5: Code block + Blockquote -->
+  <div class="slide-wrapper">
+    <div class="slide-label">Slide 5 - コードブロック + 引用</div>
+    <div style="width:576px;height:324px;overflow:hidden;">
+      <div class="slide">
+        <h2>デザインシステム</h2>
+        <div class="content-area">
+          <pre><span class="comment">// Pop Color System</span>
+<span class="keyword">const</span> palette = {
+  coral: <span class="string">'#d4654a'</span>,
+  blue:  <span class="string">'#5b8ec2'</span>,
+  gold:  <span class="func">burn</span>(<span class="string">'#e8b44c'</span>)
+};</pre>
+          <blockquote>"一は多であり、多は一である"</blockquote>
+        </div>
+        <div class="footer-bar"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 6: Colored bg (blue) + ordered list -->
+  <div class="slide-wrapper">
+    <div class="slide-label">Slide 6 - 番号リスト + まとめ</div>
+    <div style="width:576px;height:324px;overflow:hidden;">
+      <div class="slide">
+        <h2>まとめ</h2>
+        <div class="content-area">
+          <ol>
+            <li><strong>ポップ</strong>は力なり</li>
+            <li><a href="#">デザインは民主的</a>であるべき</li>
+            <li>世界を変える<code>デザイン</code>を</li>
+          </ol>
+        </div>
+        <div class="footer-bar"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide-wrapper">
+    <div class="slide-label">Slide 7 - 画像フル</div>
+    <div style="width:576px;height:324px;overflow:hidden;">
+      <div class="slide full-image">
+        <svg viewBox="0 0 960 540" xmlns="http://www.w3.org/2000/svg">
+          <rect width="960" height="540" fill="#ebe5d9"/>
+          <circle cx="240" cy="270" r="160" fill="#d4654a" opacity="0.15"/>
+          <circle cx="240" cy="270" r="100" fill="#d4654a" opacity="0.3"/>
+          <circle cx="240" cy="270" r="50" fill="#d4654a"/>
+          <circle cx="240" cy="270" r="18" fill="#f4efe6"/>
+          <rect x="440" y="100" width="200" height="340" rx="100" fill="#5b8ec2" opacity="0.15"/>
+          <rect x="480" y="140" width="120" height="260" rx="60" fill="#5b8ec2" opacity="0.3"/>
+          <rect x="510" y="190" width="60" height="160" rx="30" fill="#5b8ec2"/>
+          <rect x="525" y="250" width="30" height="40" rx="4" fill="#f4efe6"/>
+          <polygon points="780,80 880,360 680,360" fill="#e8b44c" opacity="0.15"/>
+          <polygon points="780,140 850,330 710,330" fill="#e8b44c" opacity="0.3"/>
+          <polygon points="780,200 820,300 740,300" fill="#e8b44c"/>
+          <circle cx="780" cy="258" r="14" fill="#f4efe6"/>
+          <rect x="0" y="530" width="192" height="10" fill="#d4654a"/>
+          <rect x="192" y="530" width="192" height="10" fill="#5b8ec2"/>
+          <rect x="384" y="530" width="192" height="10" fill="#e8b44c"/>
+          <rect x="576" y="530" width="192" height="10" fill="#6aab7b"/>
+          <rect x="768" y="530" width="192" height="10" fill="#2a2a2a"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide-wrapper">
+    <div class="slide-label">Slide 8 - スプリット（画像+テキスト）</div>
+    <div style="width:576px;height:324px;overflow:hidden;">
+      <div class="slide">
+        <h2>色彩の民主主義</h2>
+        <div class="split-layout">
+          <div class="split-text">
+            <ul>
+              <li><strong>色</strong>は感情を直接動かす</li>
+              <li><code>有機的曲線</code>が人を惹きつける</li>
+              <li>デザインは万人のためにある</li>
+            </ul>
+          </div>
+          <div class="split-image">
+            <svg width="300" height="280" viewBox="0 0 300 280" xmlns="http://www.w3.org/2000/svg">
+              <rect width="300" height="280" fill="#ebe5d9"/>
+              <circle cx="100" cy="100" r="50" fill="#d4654a" opacity="0.7"/>
+              <circle cx="200" cy="100" r="50" fill="#5b8ec2" opacity="0.7"/>
+              <circle cx="150" cy="180" r="50" fill="#e8b44c" opacity="0.7"/>
+              <circle cx="150" cy="130" r="15" fill="#6aab7b"/>
+            </svg>
+          </div>
+        </div>
+        <div class="footer-bar"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="css-vars">
+  <span class="comment">/* Prisma Theme — Flat Color Block */</span><br>
+  <span class="prop">--bg</span>: <span class="val">#f4efe6</span> (Warm Cream);<br>
+  <span class="prop">--fg</span>: <span class="val">#2a2a2a</span> (Charcoal);<br>
+  <span class="prop">--coral</span>: <span class="val">#d4654a</span> (Burnt Coral);<br>
+  <span class="prop">--blue</span>: <span class="val">#5b8ec2</span> (Muted Blue);<br>
+  <span class="prop">--gold</span>: <span class="val">#e8b44c</span> (Mustard);<br>
+  <span class="prop">--sage</span>: <span class="val">#6aab7b</span> (Sage Green);<br>
+  <span class="prop">bar</span>: <span class="val">5-color flat block strip</span>;<br>
+  <span class="prop">gradients</span>: <span class="val">none (all flat)</span>;
+</div>
+
+</body>
+</html>

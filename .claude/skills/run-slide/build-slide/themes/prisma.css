@@ -1,0 +1,197 @@
+/* Prisma — 分光
+ * 一筋の光が多様な色彩へと分かれる。多元性の歓び
+ */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&family=M+PLUS+Rounded+1c:wght@400;700&display=swap');
+
+/* ── Base ── */
+section {
+  background-color: #f4efe6 !important;
+  color: #2a2a2a !important;
+  font-family: 'M PLUS Rounded 1c', 'Noto Sans JP', sans-serif;
+  font-weight: 400;
+  line-height: 1.75;
+  font-size: 28px;
+  padding: 52px 56px 72px 56px;
+}
+
+/* Force text color on common elements */
+section p,
+section li,
+section span {
+  color: #2a2a2a !important;
+}
+
+/* Allow syntax highlighting colors inside code blocks */
+section pre span {
+  color: inherit !important;
+}
+section pre code span {
+  color: inherit !important;
+}
+
+/* ── Headings ── */
+h1, h2, h3 {
+  font-weight: 700;
+  color: #2a2a2a;
+  margin: 0;
+  padding: 0;
+  letter-spacing: -0.02em;
+}
+
+h1 {
+  font-size: 52px;
+  line-height: 1.1;
+  text-align: left;
+}
+
+h2 {
+  position: absolute;
+  top: 40px;
+  left: 56px;
+  right: 56px;
+  font-size: 34px;
+  padding-bottom: 20px;
+  text-align: left;
+  line-height: 1.25;
+}
+
+h2::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 4px;
+  width: 100px;
+  height: 5px;
+  background-color: #d4654a;
+}
+
+h2 + * { margin-top: 105px; }
+
+h3 {
+  color: #b04a35;
+  font-size: 32px;
+  margin-top: 22px;
+  margin-bottom: 8px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  border-bottom: 2px solid rgba(176,74,53,0.4);
+  padding-bottom: 4px;
+}
+
+/* ── Lists ── */
+ul, ol { padding-left: 28px; }
+li { margin-bottom: 9px; }
+li::marker { color: #d4654a; font-weight: 700; }
+ol li::marker { color: #5b8ec2; font-weight: 700; }
+
+/* ── Footer: disabled ── */
+footer { display: none; }
+
+/* ── Lead: dark bg with color stripes ── */
+section.lead {
+  background-color: #222 !important;
+  color: #f4efe6 !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 80px 72px 72px 72px;
+}
+section.lead::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 22px;
+  background:
+    linear-gradient(180deg,
+      #d4654a 0%, #d4654a 20%,
+      #5b8ec2 20%, #5b8ec2 40%,
+      #e8b44c 40%, #e8b44c 60%,
+      #6aab7b 60%, #6aab7b 80%,
+      #8b6bb5 80%, #8b6bb5 100%
+    );
+}
+section.lead h1 { color: #f4efe6 !important; margin-bottom: 16px; text-align: center; }
+section.lead h2 {
+  position: static;
+  font-size: 34px;
+  text-align: center;
+  color: rgba(244,239,230,0.7) !important;
+  padding-bottom: 0;
+  margin-bottom: 24px;
+}
+section.lead h2::after { display: none; }
+section.lead h2 + * { margin-top: 0; }
+section.lead p { font-size: 28px; color: rgba(244,239,230,0.6) !important; font-weight: 300; }
+section.lead span,
+section.lead li { color: #f4efe6 !important; }
+section.lead blockquote { background-color: rgba(255,255,255,0.08); border-left-color: #d4654a; }
+section.lead blockquote p { color: rgba(244,239,230,0.7) !important; }
+
+/* ── Full image ── */
+section.full-image { padding: 0; }
+
+/* ── Inline elements ── */
+strong { color: #d4654a !important; font-weight: 700; }
+a { color: #5b8ec2; text-decoration: none; font-weight: 600; }
+
+code {
+  background-color: #ebe5d9;
+  color: #2a2a2a;
+  padding: 3px 10px;
+  border-radius: 4px;
+  font-family: 'Menlo', 'Consolas', monospace;
+  font-size: 18px;
+}
+
+pre {
+  background-color: #2a2a2a;
+  color: #f4efe6;
+  padding: 18px 22px;
+  border-radius: 4px;
+  border-left: 4px solid #d4654a;
+  font-family: 'Menlo', 'Consolas', monospace;
+  font-size: 18px;
+  line-height: 1.6;
+  overflow-x: auto;
+}
+
+pre code {
+  background-color: transparent !important;
+  color: #f4efe6 !important;
+  padding: 0;
+  border-radius: 0;
+  font-size: inherit;
+}
+
+/* ── Blockquote ── */
+blockquote {
+  border-left: 5px solid #5b8ec2;
+  padding: 14px 24px;
+  margin: 12px 0;
+  background-color: #ddd2c3;
+  color: #4a453f !important;
+  font-size: 28px;
+  border-radius: 0 4px 4px 0;
+  line-height: 1.65;
+}
+blockquote p {
+  color: #4a453f !important;
+}
+
+/* ── Table ── */
+table { border-collapse: collapse; width: 100%; margin-top: 8px; background-color: #f4efe6; font-size: 24px; }
+th { background-color: #2a2a2a !important; color: #f4efe6 !important; padding: 10px 16px; text-align: left; font-weight: 600; }
+td { padding: 6px 16px; border-bottom: 1px solid #ddd5c8; background-color: #f4efe6 !important; }
+tr:nth-child(even) td { background-color: #ebe5d9 !important; }
+
+/* ── Page number ── */
+section::after {
+  color: #999;
+  font-size: 20px;
+  font-weight: 300;
+  bottom: 24px;
+}

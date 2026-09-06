@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marp Theme Preview - Kanso</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&family=Inter:wght@300;400;700&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: #e5e5e5;
+  font-family: 'Noto Sans JP', sans-serif;
+  padding: 40px;
+}
+
+.theme-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+.theme-header h1 { font-size: 32px; color: #333; margin-bottom: 8px; }
+.theme-header p { font-size: 16px; color: #666; }
+.theme-header .badge {
+  display: inline-block;
+  background: #d4702c;
+  color: #fff;
+  padding: 4px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  margin-top: 8px;
+}
+.theme-header .designer-quote {
+  font-style: italic;
+  color: #888;
+  font-size: 14px;
+  margin-top: 12px;
+}
+
+.slides-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: center;
+}
+.slide-wrapper { position: relative; }
+.slide-wrapper .slide-label {
+  text-align: center;
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.slide {
+  width: 960px;
+  height: 540px;
+  background-color: #f5f3f0;
+  color: #2c2c2c;
+  font-family: 'Inter', 'Noto Sans JP', sans-serif;
+  font-weight: 300;
+  box-sizing: border-box;
+  border-bottom: 2px solid #2c2c2c;
+  position: relative;
+  line-height: 1.8;
+  font-size: 22px;
+  padding: 64px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  overflow: hidden;
+  transform: scale(0.6);
+  transform-origin: top left;
+}
+
+.slide:last-child { border-bottom: none; }
+
+.slide h1, .slide h2, .slide h3 {
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0;
+  padding: 0;
+  letter-spacing: -0.02em;
+}
+
+.slide h1 {
+  font-size: 52px;
+  line-height: 1.2;
+  font-weight: 300;
+}
+
+.slide h2 {
+  position: absolute;
+  top: 48px;
+  left: 64px;
+  right: 64px;
+  font-size: 36px;
+  font-weight: 400;
+  padding-bottom: 16px;
+}
+
+.slide h2::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 8px;
+  width: 24px;
+  height: 2px;
+  background-color: #d4702c;
+}
+
+.slide h3 {
+  color: #8c857d;
+  font-size: 16px;
+  font-weight: 400;
+  margin-top: 32px;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.slide ul, .slide ol { padding-left: 24px; }
+.slide li { margin-bottom: 12px; }
+
+.slide .footer-bar {
+  position: absolute;
+  left: 64px;
+  right: 64px;
+  bottom: 48px;
+  height: 2px;
+  background-color: #d4702c;
+}
+
+.slide.lead { border-bottom: 2px solid #2c2c2c; }
+.slide.lead .footer-bar { display: none; }
+.slide.lead h1 { margin-bottom: 16px; }
+.slide.lead p { font-size: 22px; color: #8c857d; font-weight: 300; }
+
+.slide .content-area { margin-top: 112px; }
+
+.slide strong { color: #d4702c; font-weight: 700; }
+.slide code {
+  background-color: #eae8e4;
+  color: #2c2c2c;
+  padding: 2px 8px;
+  border-radius: 2px;
+  font-family: 'Menlo', 'Consolas', monospace;
+  font-size: 0.9em;
+}
+
+.slide pre { background-color: #2c2c2c; color: #e8e8e8; padding: 16px 20px; border-radius: 2px; border-left: 3px solid #d4702c; font-family: 'Menlo', 'Consolas', monospace; font-size: 15px; line-height: 1.7; overflow-x: auto; }
+.slide pre .keyword { color: #d4702c; }
+.slide pre .string { color: #98c379; }
+.slide pre .comment { color: #8c857d; }
+.slide pre .func { color: #e8e8e8; }
+
+.slide blockquote { border-left: 3px solid #d4702c; padding: 12px 20px; margin: 16px 0; color: #8c857d; font-weight: 300; }
+
+.slide table { border-collapse: collapse; width: 100%; margin-top: 8px; }
+.slide th { background-color: #2c2c2c; color: #f5f3f0; padding: 10px 16px; text-align: left; font-weight: 700; letter-spacing: 0.05em; }
+.slide td { padding: 8px 16px; border-bottom: 1px solid #ddd; }
+.slide tr:nth-child(even) { background-color: #eeece8; }
+
+.slide ol { padding-left: 24px; }
+.slide a { color: #d4702c; text-decoration: none; }
+
+.slide.full-image { padding: 0; }
+.slide.full-image svg { width: 100%; height: 100%; display: block; }
+
+.slide .split-layout { display: flex; gap: 24px; height: calc(100% - 112px); margin-top: 112px; align-items: center; }
+.slide .split-text { flex: 1; }
+.slide .split-image { flex: 0 0 40%; height: 100%; border-radius: 2px; overflow: hidden; display: flex; align-items: center; justify-content: center; background-color: #eae8e4; }
+
+.color-palette {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+.color-swatch { text-align: center; }
+.color-swatch .swatch {
+  width: 60px;
+  height: 60px;
+  border-radius: 8px;
+  border: 2px solid #ddd;
+  margin-bottom: 4px;
+}
+.color-swatch .label { font-size: 11px; color: #666; }
+.color-swatch .value { font-size: 11px; color: #999; font-family: monospace; }
+
+.css-vars {
+  background: #1e1e1e;
+  color: #d4d4d4;
+  padding: 20px;
+  border-radius: 8px;
+  font-family: 'Fira Code', monospace;
+  font-size: 13px;
+  line-height: 1.8;
+  max-width: 700px;
+  margin: 30px auto 0;
+}
+.css-vars .prop { color: #9cdcfe; }
+.css-vars .val { color: #ce9178; }
+.css-vars .comment { color: #6a9955; }
+</style>
+</head>
+<body>
+
+<div class="theme-header">
+  <h1>Kanso — 簡素</h1>
+  <p>不要を削ぎ落とし、本質だけを残す。禅の美学</p>
+  <span class="badge">theme-kanso.css</span>
+  <div class="designer-quote">"簡素とは、複雑を通り抜けた先にある静寂である"</div>
+</div>
+
+<div class="color-palette">
+  <div class="color-swatch">
+    <div class="swatch" style="background:#f5f3f0;"></div>
+    <div class="label">Background</div>
+    <div class="value">#f5f3f0</div>
+  </div>
+  <div class="color-swatch">
+    <div class="swatch" style="background:#2c2c2c;"></div>
+    <div class="label">Foreground</div>
+    <div class="value">#2c2c2c</div>
+  </div>
+  <div class="color-swatch">
+    <div class="swatch" style="background:#1a1a1a;"></div>
+    <div class="label">Heading</div>
+    <div class="value">#1a1a1a</div>
+  </div>
+  <div class="color-swatch">
+    <div class="swatch" style="background:#d4702c;"></div>
+    <div class="label">Accent</div>
+    <div class="value">#d4702c</div>
+  </div>
+  <div class="color-swatch">
+    <div class="swatch" style="background:#8c857d;"></div>
+    <div class="label">Muted</div>
+    <div class="value">#8c857d</div>
+  </div>
+</div>
+
+<div class="slides-container">
+  <div class="slide-wrapper">
+    <div class="slide-label">Slide 1 - タイトル (lead)</div>
+    <div style="width:576px;height:324px;overflow:hidden;">
+      <div class="slide lead">
+        <h1>Less, but better</h1>
+        <p>機能的デザインの10原則</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide-wrapper">
+    <div class="slide-label">Slide 2 - アジェンダ</div>
+    <div style="width:576px;height:324px;overflow:hidden;">
+      <div class="slide">
+        <h2>アジェンダ</h2>
+        <div class="content-area">
+          <ul>
+            <li>良いデザインは革新的である</li>
+            <li>良いデザインは実用的である</li>
+            <li>良いデザインは美的である</li>
+          </ul>
+        </div>
+        <div class="footer-bar"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide-wrapper">
+    <div class="slide-label">Slide 3 - コンテンツ</div>
+    <div style="width:576px;height:324px;overflow:hidden;">
+      <div class="slide">
+        <h2>デザイン原則</h2>
+        <div class="content-area">
+          <h3>CORE PRINCIPLE</h3>
+          <ul>
+            <li><strong>誠実さ</strong>: 製品を実際より優れたものに見せない</li>
+            <li><code>控えめ</code>: 装飾ではなく道具である</li>
+            <li>できるだけ少なく、しかし必要十分に</li>
+          </ul>
+        </div>
+        <div class="footer-bar"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide-wrapper">
+    <div class="slide-label">Slide 4 - テーブル</div>
+    <div style="width:576px;height:324px;overflow:hidden;">
+      <div class="slide">
+        <h2>良いデザインの10原則</h2>
+        <div class="content-area">
+          <table>
+            <tr><th>#</th><th>原則</th><th>キーワード</th></tr>
+            <tr><td>01</td><td>革新的である</td><td><strong>Innovation</strong></td></tr>
+            <tr><td>02</td><td>実用的である</td><td>Usefulness</td></tr>
+            <tr><td>03</td><td>美的である</td><td>Aesthetics</td></tr>
+          </table>
+        </div>
+        <div class="footer-bar"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide-wrapper">
+    <div class="slide-label">Slide 5 - コードブロック + 引用</div>
+    <div style="width:576px;height:324px;overflow:hidden;">
+      <div class="slide">
+        <h2>設計思想</h2>
+        <div class="content-area">
+          <pre><span class="comment">// Kanso Design Principles</span>
+<span class="keyword">const</span> design = {
+  innovative: <span class="string">true</span>,
+  useful: <span class="string">true</span>,
+  decoration: <span class="string">false</span>
+};</pre>
+          <blockquote>"Weniger, aber besser" — 少なく、しかし良く</blockquote>
+        </div>
+        <div class="footer-bar"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide-wrapper">
+    <div class="slide-label">Slide 6 - 番号リスト + まとめ</div>
+    <div style="width:576px;height:324px;overflow:hidden;">
+      <div class="slide">
+        <h2>まとめ</h2>
+        <div class="content-area">
+          <ol>
+            <li><strong>少なく</strong>、しかし良く</li>
+            <li><a href="#">機能</a>が形を決定する</li>
+            <li>良いデザインは<code>控えめ</code>である</li>
+          </ol>
+        </div>
+        <div class="footer-bar"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide-wrapper">
+    <div class="slide-label">Slide 7 - 画像フル</div>
+    <div style="width:576px;height:324px;overflow:hidden;">
+      <div class="slide full-image">
+        <svg viewBox="0 0 960 540" xmlns="http://www.w3.org/2000/svg">
+          <rect width="960" height="540" fill="#eae8e4"/>
+          <rect x="60" y="60" width="240" height="420" rx="4" fill="#2c2c2c"/>
+          <rect x="76" y="76" width="208" height="300" rx="2" fill="#f5f3f0"/>
+          <circle cx="180" cy="220" r="80" fill="none" stroke="#d4702c" stroke-width="4"/>
+          <circle cx="180" cy="220" r="30" fill="#d4702c"/>
+          <rect x="100" y="400" width="120" height="8" rx="2" fill="#8c857d"/>
+          <rect x="100" y="418" width="72" height="6" rx="2" fill="#c0c0c0"/>
+          <rect x="360" y="60" width="240" height="420" rx="4" fill="#2c2c2c"/>
+          <rect x="376" y="76" width="208" height="300" rx="2" fill="#f5f3f0"/>
+          <rect x="410" y="120" width="140" height="220" rx="2" fill="#d4702c" opacity="0.12"/>
+          <rect x="440" y="170" width="80" height="120" rx="2" fill="#d4702c"/>
+          <rect x="400" y="400" width="120" height="8" rx="2" fill="#8c857d"/>
+          <rect x="400" y="418" width="72" height="6" rx="2" fill="#c0c0c0"/>
+          <rect x="660" y="60" width="240" height="420" rx="4" fill="#2c2c2c"/>
+          <rect x="676" y="76" width="208" height="300" rx="2" fill="#f5f3f0"/>
+          <line x1="720" y1="150" x2="840" y2="150" stroke="#d4702c" stroke-width="5"/>
+          <line x1="720" y1="200" x2="840" y2="200" stroke="#d4702c" stroke-width="3"/>
+          <line x1="720" y1="245" x2="820" y2="245" stroke="#d4702c" stroke-width="3" opacity="0.4"/>
+          <line x1="720" y1="285" x2="800" y2="285" stroke="#d4702c" stroke-width="2" opacity="0.25"/>
+          <rect x="700" y="400" width="120" height="8" rx="2" fill="#8c857d"/>
+          <rect x="700" y="418" width="72" height="6" rx="2" fill="#c0c0c0"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide-wrapper">
+    <div class="slide-label">Slide 8 - スプリット（画像+テキスト）</div>
+    <div style="width:576px;height:324px;overflow:hidden;">
+      <div class="slide">
+        <h2>形態は機能に従う</h2>
+        <div class="split-layout">
+          <div class="split-text">
+            <ul>
+              <li><strong>機能</strong>が先、装飾は後</li>
+              <li>素材の<code>正直な</code>表現</li>
+              <li>ユーザーの手に馴染むこと</li>
+            </ul>
+          </div>
+          <div class="split-image">
+            <svg width="300" height="280" viewBox="0 0 300 280" xmlns="http://www.w3.org/2000/svg">
+              <rect width="300" height="280" fill="#eae8e4"/>
+              <rect x="40" y="30" width="220" height="220" rx="4" fill="#f5f3f0" stroke="#2c2c2c" stroke-width="1"/>
+              <circle cx="150" cy="120" r="50" fill="none" stroke="#e86c00" stroke-width="3"/>
+              <circle cx="150" cy="120" r="18" fill="#e86c00"/>
+              <rect x="80" y="200" width="140" height="6" rx="2" fill="#8a8a8a"/>
+              <rect x="100" y="216" width="100" height="4" rx="2" fill="#c0c0c0"/>
+            </svg>
+          </div>
+        </div>
+        <div class="footer-bar"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="css-vars">
+  <span class="comment">/* Kanso Theme - CSS Variables */</span><br>
+  <span class="prop">--color-background</span>: <span class="val">#f5f3f0</span>;<br>
+  <span class="prop">--color-foreground</span>: <span class="val">#2c2c2c</span>;<br>
+  <span class="prop">--color-heading</span>: <span class="val">#1a1a1a</span>;<br>
+  <span class="prop">--color-accent</span>: <span class="val">#d4702c</span> (Burnt Amber);<br>
+  <span class="prop">--color-muted</span>: <span class="val">#8c857d</span>;<br>
+  <span class="prop">font-weight</span>: <span class="val">300 (light)</span>;<br>
+  <span class="prop">h2::after</span>: <span class="val">24px orange line</span>;
+</div>
+
+</body>
+</html>

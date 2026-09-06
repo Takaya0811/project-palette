@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marp Theme Preview - Sumi</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;600;700&family=Source+Sans+3:wght@300;400;600;700&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: #e5e5e5;
+  font-family: 'Noto Sans JP', sans-serif;
+  padding: 40px;
+}
+
+.theme-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+.theme-header h1 { font-size: 32px; color: #333; margin-bottom: 8px; }
+.theme-header p { font-size: 16px; color: #666; }
+.theme-header .badge {
+  display: inline-block;
+  background: #4a6fa5;
+  color: #fff;
+  padding: 4px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  margin-top: 8px;
+}
+.theme-header .designer-quote {
+  font-style: italic;
+  color: #888;
+  font-size: 14px;
+  margin-top: 12px;
+}
+
+.slides-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: center;
+}
+.slide-wrapper { position: relative; }
+.slide-wrapper .slide-label {
+  text-align: center;
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.slide {
+  width: 960px;
+  height: 540px;
+  background-color: #f5f6f8;
+  color: #2c3e50;
+  font-family: 'Source Sans 3', 'Noto Sans JP', sans-serif;
+  font-weight: 400;
+  box-sizing: border-box;
+  position: relative;
+  line-height: 1.7;
+  font-size: 22px;
+  padding: 64px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  overflow: hidden;
+  transform: scale(0.6);
+  transform-origin: top left;
+}
+
+.slide h1, .slide h2, .slide h3 {
+  font-weight: 700;
+  color: #1a1a2e;
+  margin: 0;
+  padding: 0;
+  letter-spacing: -0.02em;
+}
+
+.slide h1 {
+  font-size: 50px;
+  line-height: 1.2;
+  font-weight: 600;
+}
+
+.slide h2 {
+  position: absolute;
+  top: 48px;
+  left: 64px;
+  right: 64px;
+  font-size: 36px;
+  font-weight: 600;
+  padding-bottom: 16px;
+}
+
+.slide h2::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 6px;
+  width: 40px;
+  height: 3px;
+  background-color: #4a6fa5;
+}
+
+.slide h3 {
+  color: #7f8c8d;
+  font-size: 16px;
+  font-weight: 400;
+  margin-top: 28px;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.slide ul, .slide ol { padding-left: 24px; }
+.slide li { margin-bottom: 12px; }
+.slide li::marker { color: #4a6fa5; }
+
+.slide .footer-bar {
+  position: absolute;
+  left: 64px;
+  right: 64px;
+  bottom: 44px;
+  height: 2px;
+  background: linear-gradient(90deg, #1a1a2e, #4a6fa5, #95a5a6, transparent);
+}
+
+.slide.lead {
+  background-color: #1a1a2e !important;
+  color: #f5f6f8;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+.slide.lead .footer-bar { display: none; }
+.slide.lead h1 { color: #f5f6f8; margin-bottom: 16px; }
+.slide.lead p { font-size: 22px; color: #95a5a6; font-weight: 300; }
+
+.slide .content-area { margin-top: 112px; }
+
+.slide strong { color: #4a6fa5; font-weight: 700; }
+.slide code {
+  background-color: #e8ecf1;
+  color: #2c3e50;
+  padding: 2px 8px;
+  border-radius: 3px;
+  font-family: 'Menlo', 'Consolas', monospace;
+  font-size: 0.9em;
+}
+
+.slide pre { background-color: #1a1a2e; color: #e8ecf1; padding: 18px 22px; border-radius: 4px; border-left: 3px solid #4a6fa5; font-family: 'Menlo', 'Consolas', monospace; font-size: 15px; line-height: 1.7; overflow-x: auto; }
+.slide pre .keyword { color: #4a6fa5; }
+.slide pre .string { color: #7ec8e3; }
+.slide pre .comment { color: #7f8c8d; }
+.slide pre .func { color: #e8ecf1; }
+
+.slide blockquote { border-left: 3px solid #4a6fa5; padding: 14px 22px; margin: 16px 0; color: #5d6d7e; font-weight: 300; background-color: #eef0f3; }
+
+.slide table { border-collapse: collapse; width: 100%; margin-top: 8px; }
+.slide th { background-color: #1a1a2e; color: #f5f6f8; padding: 10px 16px; text-align: left; font-weight: 600; letter-spacing: 0.03em; }
+.slide td { padding: 8px 16px; border-bottom: 1px solid #d5dbe0; }
+.slide tr:nth-child(even) { background-color: #eef0f3; }
+
+.slide ol { padding-left: 24px; }
+.slide a { color: #4a6fa5; text-decoration: none; font-weight: 600; }
+
+.slide.full-image { padding: 0; }
+.slide.full-image svg { width: 100%; height: 100%; display: block; }
+
+.slide .split-layout { display: flex; gap: 24px; height: calc(100% - 112px); margin-top: 112px; align-items: center; }
+.slide .split-text { flex: 1; }
+.slide .split-image { flex: 0 0 40%; height: 100%; border-radius: 4px; overflow: hidden; display: flex; align-items: center; justify-content: center; background-color: #e8ecf1; }
+
+.color-palette {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+.color-swatch { text-align: center; }
+.color-swatch .swatch {
+  width: 60px;
+  height: 60px;
+  border-radius: 8px;
+  border: 2px solid #ddd;
+  margin-bottom: 4px;
+}
+.color-swatch .label { font-size: 11px; color: #666; }
+.color-swatch .value { font-size: 11px; color: #999; font-family: monospace; }
+
+.css-vars {
+  background: #1e1e1e;
+  color: #d4d4d4;
+  padding: 20px;
+  border-radius: 8px;
+  font-family: 'Fira Code', monospace;
+  font-size: 13px;
+  line-height: 1.8;
+  max-width: 700px;
+  margin: 30px auto 0;
+}
+.css-vars .prop { color: #9cdcfe; }
+.css-vars .val { color: #ce9178; }
+.css-vars .comment { color: #6a9955; }
+</style>
+</head>
+<body>
+
+<div class="theme-header">
+  <h1>Sumi — 墨</h1>
+  <p>一滴の墨が紙に広がり、濃淡が世界を描く。墨絵の静謐</p>
+  <span class="badge">theme-sumi.css</span>
+  <div class="designer-quote">"墨に五彩あり" — 水墨の中に無限の色が宿る</div>
+</div>
+
+<div class="color-palette">
+  <div class="color-swatch">
+    <div class="swatch" style="background:#f5f6f8;"></div>
+    <div class="label">Background</div>
+    <div class="value">#f5f6f8</div>
+  </div>
+  <div class="color-swatch">
+    <div class="swatch" style="background:#2c3e50;"></div>
+    <div class="label">Foreground</div>
+    <div class="value">#2c3e50</div>
+  </div>
+  <div class="color-swatch">
+    <div class="swatch" style="background:#1a1a2e;"></div>
+    <div class="label">Heading</div>
+    <div class="value">#1a1a2e</div>
+  </div>
+  <div class="color-swatch">
+    <div class="swatch" style="background:#4a6fa5;"></div>
+    <div class="label">Accent</div>
+    <div class="value">#4a6fa5</div>
+  </div>
+  <div class="color-swatch">
+    <div class="swatch" style="background:#7f8c8d;"></div>
+    <div class="label">Muted</div>
+    <div class="value">#7f8c8d</div>
+  </div>
+</div>
+
+<div class="slides-container">
+  <div class="slide-wrapper">
+    <div class="slide-label">Slide 1 - タイトル (lead)</div>
+    <div style="width:576px;height:324px;overflow:hidden;">
+      <div class="slide lead">
+        <h1>思考の深度</h1>
+        <p>クリティカルシンキングの技法</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide-wrapper">
+    <div class="slide-label">Slide 2 - アジェンダ</div>
+    <div style="width:576px;height:324px;overflow:hidden;">
+      <div class="slide">
+        <h2>アジェンダ</h2>
+        <div class="content-area">
+          <ul>
+            <li>分析的思考の基礎</li>
+            <li>論理的推論のフレームワーク</li>
+            <li>意思決定プロセスの最適化</li>
+          </ul>
+        </div>
+        <div class="footer-bar"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide-wrapper">
+    <div class="slide-label">Slide 3 - コンテンツ</div>
+    <div style="width:576px;height:324px;overflow:hidden;">
+      <div class="slide">
+        <h2>思考の3層構造</h2>
+        <div class="content-area">
+          <h3>FRAMEWORK</h3>
+          <ul>
+            <li><strong>直観</strong>: 経験に基づく即座の判断</li>
+            <li><code>分析</code>: データに基づく論理的検証</li>
+            <li>統合: 複数の視点を包括する俯瞰力</li>
+          </ul>
+        </div>
+        <div class="footer-bar"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide-wrapper">
+    <div class="slide-label">Slide 4 - テーブル</div>
+    <div style="width:576px;height:324px;overflow:hidden;">
+      <div class="slide">
+        <h2>フレームワーク比較</h2>
+        <div class="content-area">
+          <table>
+            <tr><th>手法</th><th>特徴</th><th>適用場面</th></tr>
+            <tr><td>MECE</td><td>網羅的・排他的</td><td><strong>問題分析</strong></td></tr>
+            <tr><td>ピラミッド</td><td>結論→根拠</td><td>提案・報告</td></tr>
+            <tr><td>仮説思考</td><td>仮説→検証</td><td>意思決定</td></tr>
+          </table>
+        </div>
+        <div class="footer-bar"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide-wrapper">
+    <div class="slide-label">Slide 5 - コードブロック + 引用</div>
+    <div style="width:576px;height:324px;overflow:hidden;">
+      <div class="slide">
+        <h2>構造化思考</h2>
+        <div class="content-area">
+          <pre><span class="comment">// Structured Thinking</span>
+<span class="keyword">const</span> think = (<span class="func">problem</span>) => {
+  <span class="keyword">const</span> hypothesis = <span class="func">formulate</span>(problem);
+  <span class="keyword">const</span> evidence = <span class="func">gather</span>(hypothesis);
+  <span class="keyword">return</span> <span class="func">validate</span>(evidence);
+};</pre>
+          <blockquote>"考えるとは、事実を整理することではなく、問いを立てることである"</blockquote>
+        </div>
+        <div class="footer-bar"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide-wrapper">
+    <div class="slide-label">Slide 6 - 番号リスト + まとめ</div>
+    <div style="width:576px;height:324px;overflow:hidden;">
+      <div class="slide">
+        <h2>まとめ</h2>
+        <div class="content-area">
+          <ol>
+            <li><strong>問い</strong>を立てることから始める</li>
+            <li>複数の<a href="#">視点</a>で検証する</li>
+            <li><code>構造化</code>して伝える</li>
+          </ol>
+        </div>
+        <div class="footer-bar"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide-wrapper">
+    <div class="slide-label">Slide 7 - 画像フル</div>
+    <div style="width:576px;height:324px;overflow:hidden;">
+      <div class="slide full-image">
+        <svg viewBox="0 0 960 540" xmlns="http://www.w3.org/2000/svg">
+          <rect width="960" height="540" fill="#e8ecf1"/>
+          <circle cx="480" cy="270" r="180" fill="none" stroke="#1a1a2e" stroke-width="1" opacity="0.3"/>
+          <circle cx="480" cy="270" r="120" fill="none" stroke="#4a6fa5" stroke-width="2" opacity="0.5"/>
+          <circle cx="480" cy="270" r="60" fill="#4a6fa5" opacity="0.15"/>
+          <circle cx="480" cy="270" r="20" fill="#1a1a2e"/>
+          <line x1="100" y1="270" x2="380" y2="270" stroke="#1a1a2e" stroke-width="1" opacity="0.2"/>
+          <line x1="580" y1="270" x2="860" y2="270" stroke="#1a1a2e" stroke-width="1" opacity="0.2"/>
+          <line x1="480" y1="40" x2="480" y2="200" stroke="#1a1a2e" stroke-width="1" opacity="0.2"/>
+          <line x1="480" y1="340" x2="480" y2="500" stroke="#1a1a2e" stroke-width="1" opacity="0.2"/>
+          <text x="480" y="510" fill="#7f8c8d" font-size="14" text-anchor="middle" font-family="Source Sans 3, sans-serif">Focus — Analyze — Synthesize</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide-wrapper">
+    <div class="slide-label">Slide 8 - スプリット（画像+テキスト）</div>
+    <div style="width:576px;height:324px;overflow:hidden;">
+      <div class="slide">
+        <h2>問いの技法</h2>
+        <div class="split-layout">
+          <div class="split-text">
+            <ul>
+              <li><strong>Why</strong>を5回繰り返す</li>
+              <li>前提を<code>疑う</code>勇気</li>
+              <li>反証可能な仮説を立てる</li>
+            </ul>
+          </div>
+          <div class="split-image">
+            <svg width="300" height="280" viewBox="0 0 300 280" xmlns="http://www.w3.org/2000/svg">
+              <rect width="300" height="280" fill="#e8ecf1"/>
+              <text x="150" y="80" fill="#1a1a2e" font-size="72" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-weight="700">?</text>
+              <text x="150" y="130" fill="#4a6fa5" font-size="48" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-weight="600">?</text>
+              <text x="150" y="170" fill="#95a5a6" font-size="36" text-anchor="middle" font-family="Source Sans 3, sans-serif">?</text>
+              <text x="150" y="200" fill="#bdc3c7" font-size="24" text-anchor="middle" font-family="Source Sans 3, sans-serif">?</text>
+              <text x="150" y="222" fill="#d5dbe0" font-size="16" text-anchor="middle" font-family="Source Sans 3, sans-serif">?</text>
+              <rect x="60" y="240" width="180" height="2" fill="#4a6fa5" opacity="0.5"/>
+              <text x="150" y="264" fill="#7f8c8d" font-size="12" text-anchor="middle" font-family="Source Sans 3, sans-serif">5 Whys</text>
+            </svg>
+          </div>
+        </div>
+        <div class="footer-bar"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="css-vars">
+  <span class="comment">/* Sumi Theme - CSS Variables */</span><br>
+  <span class="prop">--color-background</span>: <span class="val">#f5f6f8</span> (Cool Paper);<br>
+  <span class="prop">--color-foreground</span>: <span class="val">#2c3e50</span> (Charcoal);<br>
+  <span class="prop">--color-heading</span>: <span class="val">#1a1a2e</span> (Ink Black);<br>
+  <span class="prop">--color-accent</span>: <span class="val">#4a6fa5</span> (Indigo);<br>
+  <span class="prop">--color-muted</span>: <span class="val">#7f8c8d</span> (Cool Gray);<br>
+  <span class="prop">font-weight</span>: <span class="val">400 (regular)</span>;<br>
+  <span class="prop">h2::after</span>: <span class="val">40px indigo line</span>;<br>
+  <span class="prop">footer</span>: <span class="val">ink wash gradient</span>;
+</div>
+
+</body>
+</html>

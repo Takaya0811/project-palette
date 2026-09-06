@@ -1,0 +1,18 @@
+{
+  "version": "1",
+  "skill": "assign-debate-evaluator",
+  "score_field": "quality.overall",
+  "breakdown_keys": [],
+  "breakdown_keys_source": "criteria_argument",
+  "extras": {
+    "plan_implementation": "supplemental",
+    "feedback": "required",
+    "passed": "required",
+    "evaluator_skill": "required",
+    "debate": "required"
+  },
+  "passing_rule": "score >= threshold",
+  "ref": null,
+  "rubric": null,
+  "notes": "Codex + Claude (or Advocate vs Critic) の debate 形式で採点する汎用 evaluator。breakdown_keys は criteria 引数から動的生成。debate メタデータを拡張に格納"
+}

@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marp Theme Preview - Tabula</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@200;400;600&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: #e5e5e5;
+  font-family: 'Noto Sans JP', sans-serif;
+  padding: 40px;
+}
+
+.theme-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+.theme-header h1 { font-size: 32px; color: #333; margin-bottom: 8px; }
+.theme-header p { font-size: 16px; color: #666; }
+.theme-header .badge {
+  display: inline-block;
+  background: #2563eb;
+  color: #fff;
+  padding: 4px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  margin-top: 8px;
+}
+.theme-header .designer-quote {
+  font-style: italic;
+  color: #888;
+  font-size: 14px;
+  margin-top: 12px;
+}
+
+.slides-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: center;
+}
+.slide-wrapper { position: relative; }
+.slide-wrapper .slide-label {
+  text-align: center;
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.slide {
+  width: 960px;
+  height: 540px;
+  background-color: #ffffff;
+  color: #1a1a1a;
+  font-family: system-ui, 'Noto Sans JP', sans-serif;
+  font-weight: 400;
+  box-sizing: border-box;
+  border-bottom: none;
+  position: relative;
+  line-height: 1.6;
+  font-size: 24px;
+  padding: 72px 80px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  overflow: hidden;
+  transform: scale(0.6);
+  transform-origin: top left;
+}
+
+.slide h1, .slide h2, .slide h3 {
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0;
+  padding: 0;
+  letter-spacing: -0.02em;
+}
+
+.slide h1 {
+  font-size: 64px;
+  line-height: 1.1;
+  text-align: center;
+}
+
+.slide h2 {
+  position: absolute;
+  top: 48px;
+  left: 80px;
+  right: 80px;
+  font-size: 40px;
+  padding-bottom: 16px;
+  text-align: center;
+}
+
+.slide h3 {
+  color: #71717a;
+  font-size: 24px;
+  font-weight: 400;
+  margin-top: 32px;
+  margin-bottom: 8px;
+}
+
+.slide ul, .slide ol { padding-left: 28px; }
+.slide li { margin-bottom: 12px; }
+
+.slide .footer-bar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #2563eb, #7c3aed);
+}
+
+.slide.lead {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.slide.lead .footer-bar { display: none; }
+.slide.lead h1 { margin-bottom: 16px; }
+.slide.lead p { font-size: 24px; color: #71717a; font-weight: 200; }
+
+.slide .content-area { margin-top: 120px; }
+
+.slide strong { color: #2563eb; font-weight: 600; }
+.slide code {
+  background-color: #f4f4f5;
+  color: #1a1a1a;
+  padding: 3px 10px;
+  border-radius: 6px;
+  font-family: 'Menlo', 'Consolas', monospace;
+  font-size: 0.85em;
+}
+
+.slide pre { background-color: #1a1a1a; color: #f4f4f5; padding: 20px 24px; border-radius: 12px; font-family: 'Menlo', 'Consolas', monospace; font-size: 15px; line-height: 1.7; overflow-x: auto; }
+.slide pre .keyword { color: #bf5af2; }
+.slide pre .string { color: #30d158; }
+.slide pre .comment { color: #636366; }
+.slide pre .func { color: #5ac8fa; }
+
+.slide blockquote { border-left: 3px solid #2563eb; padding: 12px 20px; margin: 16px 0; color: #71717a; font-style: normal; }
+
+.slide table { border-collapse: collapse; width: 100%; margin-top: 8px; }
+.slide th { background-color: #f4f4f5; color: #1a1a1a; padding: 12px 16px; text-align: left; font-weight: 600; border-bottom: 2px solid #d4d4d8; }
+.slide td { padding: 10px 16px; border-bottom: 1px solid #d4d4d8; }
+
+.slide ol { padding-left: 28px; }
+.slide a { color: #2563eb; text-decoration: none; }
+.slide a:hover { text-decoration: underline; }
+
+.slide.full-image { padding: 0; }
+.slide.full-image svg { width: 100%; height: 100%; display: block; }
+
+.slide .split-layout { display: flex; gap: 32px; height: calc(100% - 120px); margin-top: 120px; align-items: center; }
+.slide .split-text { flex: 1; }
+.slide .split-image { flex: 0 0 40%; height: 100%; border-radius: 12px; overflow: hidden; display: flex; align-items: center; justify-content: center; background-color: #f4f4f5; }
+
+.color-palette {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+.color-swatch { text-align: center; }
+.color-swatch .swatch {
+  width: 60px;
+  height: 60px;
+  border-radius: 8px;
+  border: 2px solid #ddd;
+  margin-bottom: 4px;
+}
+.color-swatch .label { font-size: 11px; color: #666; }
+.color-swatch .value { font-size: 11px; color: #999; font-family: monospace; }
+
+.css-vars {
+  background: #1e1e1e;
+  color: #d4d4d4;
+  padding: 20px;
+  border-radius: 8px;
+  font-family: 'Fira Code', monospace;
+  font-size: 13px;
+  line-height: 1.8;
+  max-width: 700px;
+  margin: 30px auto 0;
+}
+.css-vars .prop { color: #9cdcfe; }
+.css-vars .val { color: #ce9178; }
+.css-vars .comment { color: #6a9955; }
+</style>
+</head>
+<body>
+
+<div class="theme-header">
+  <h1>Tabula — 白紙</h1>
+  <p>何も書かれていない白紙から、すべてが始まる。純粋理性</p>
+  <span class="badge">theme-tabula.css</span>
+  <div class="designer-quote">"人間の心は白紙である" — ジョン・ロック『人間悟性論』</div>
+</div>
+
+<div class="color-palette">
+  <div class="color-swatch">
+    <div class="swatch" style="background:#ffffff;"></div>
+    <div class="label">Background</div>
+    <div class="value">#ffffff</div>
+  </div>
+  <div class="color-swatch">
+    <div class="swatch" style="background:#1a1a1a;"></div>
+    <div class="label">Foreground</div>
+    <div class="value">#1a1a1a</div>
+  </div>
+  <div class="color-swatch">
+    <div class="swatch" style="background:#2563eb;"></div>
+    <div class="label">Accent</div>
+    <div class="value">#2563eb</div>
+  </div>
+  <div class="color-swatch">
+    <div class="swatch" style="background:#71717a;"></div>
+    <div class="label">Muted</div>
+    <div class="value">#71717a</div>
+  </div>
+  <div class="color-swatch">
+    <div class="swatch" style="background:#7c3aed;"></div>
+    <div class="label">Secondary</div>
+    <div class="value">#7c3aed</div>
+  </div>
+</div>
+
+<div class="slides-container">
+  <div class="slide-wrapper">
+    <div class="slide-label">Slide 1 - タイトル (lead)</div>
+    <div style="width:576px;height:324px;overflow:hidden;">
+      <div class="slide lead">
+        <h1>Think Different</h1>
+        <p>デザインとは、こう機能するということ</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide-wrapper">
+    <div class="slide-label">Slide 2 - アジェンダ</div>
+    <div style="width:576px;height:324px;overflow:hidden;">
+      <div class="slide">
+        <h2>アジェンダ</h2>
+        <div class="content-area">
+          <ul>
+            <li>デザインフィロソフィー</li>
+            <li>プロダクトの進化</li>
+            <li>ミニマリズムの力</li>
+          </ul>
+        </div>
+        <div class="footer-bar"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide-wrapper">
+    <div class="slide-label">Slide 3 - コンテンツ</div>
+    <div style="width:576px;height:324px;overflow:hidden;">
+      <div class="slide">
+        <h2>デザイン哲学</h2>
+        <div class="content-area">
+          <ul>
+            <li><strong>シンプルさ</strong>: 本質だけを残す</li>
+            <li><code>素材</code>の正直な表現</li>
+            <li>ユーザー体験が全てを決める</li>
+          </ul>
+        </div>
+        <div class="footer-bar"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide-wrapper">
+    <div class="slide-label">Slide 4 - テーブル</div>
+    <div style="width:576px;height:324px;overflow:hidden;">
+      <div class="slide">
+        <h2>Product Timeline</h2>
+        <div class="content-area">
+          <table>
+            <tr><th>Year</th><th>Product</th><th>Innovation</th></tr>
+            <tr><td>Phase 1</td><td>構想</td><td><strong>白紙</strong>から始まる</td></tr>
+            <tr><td>Phase 2</td><td>設計</td><td>本質の抽出</td></tr>
+            <tr><td>Phase 3</td><td>洗練</td><td>究極のシンプル</td></tr>
+          </table>
+        </div>
+        <div class="footer-bar"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide-wrapper">
+    <div class="slide-label">Slide 5 - コードブロック + 引用</div>
+    <div style="width:576px;height:324px;overflow:hidden;">
+      <div class="slide">
+        <h2>SwiftUI Example</h2>
+        <div class="content-area">
+          <pre><span class="comment">// Minimal Design Language</span>
+<span class="keyword">struct</span> <span class="func">ContentView</span>: View {
+  <span class="keyword">var</span> body: some View {
+    Text(<span class="string">"Hello, World"</span>)
+      .font(.largeTitle)
+  }
+}</pre>
+          <blockquote>"Design is not just what it looks like, design is how it works"</blockquote>
+        </div>
+        <div class="footer-bar"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide-wrapper">
+    <div class="slide-label">Slide 6 - 番号リスト + まとめ</div>
+    <div style="width:576px;height:324px;overflow:hidden;">
+      <div class="slide">
+        <h2>まとめ</h2>
+        <div class="content-area">
+          <ol>
+            <li>デザインは<strong>見た目</strong>ではない</li>
+            <li><a href="#">機能</a>そのものである</li>
+            <li><code>シンプル</code>こそ究極の洗練</li>
+          </ol>
+        </div>
+        <div class="footer-bar"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide-wrapper">
+    <div class="slide-label">Slide 7 - 画像フル</div>
+    <div style="width:576px;height:324px;overflow:hidden;">
+      <div class="slide full-image">
+        <svg viewBox="0 0 960 540" xmlns="http://www.w3.org/2000/svg">
+          <rect width="960" height="540" fill="#ffffff"/>
+          <rect x="240" y="80" width="480" height="380" rx="40" fill="#f4f4f5"/>
+          <rect x="280" y="120" width="400" height="260" rx="4" fill="#1a1a1a"/>
+          <circle cx="480" cy="250" r="60" fill="#2563eb" opacity="0.15"/>
+          <circle cx="480" cy="250" r="35" fill="#2563eb" opacity="0.3"/>
+          <circle cx="480" cy="250" r="16" fill="#2563eb"/>
+          <rect x="380" y="310" width="200" height="6" rx="3" fill="#71717a" opacity="0.3"/>
+          <rect x="420" y="324" width="120" height="4" rx="2" fill="#71717a" opacity="0.15"/>
+          <circle cx="480" cy="415" r="20" fill="#d4d4d8"/>
+          <circle cx="480" cy="415" r="6" fill="#71717a"/>
+          <rect x="380" y="460" width="200" height="3" rx="1.5" fill="#d4d4d8"/>
+          <rect x="0" y="537" width="960" height="3" fill="url(#ive-grad)"/>
+          <defs><linearGradient id="ive-grad" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#2563eb"/><stop offset="100%" stop-color="#7c3aed"/></linearGradient></defs>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide-wrapper">
+    <div class="slide-label">Slide 8 - スプリット（画像+テキスト）</div>
+    <div style="width:576px;height:324px;overflow:hidden;">
+      <div class="slide">
+        <h2>Design Philosophy</h2>
+        <div class="split-layout">
+          <div class="split-text">
+            <ul>
+              <li><strong>シンプルさ</strong>は究極の洗練</li>
+              <li><code>素材</code>の正直な表現</li>
+              <li>体験がすべてを決める</li>
+            </ul>
+          </div>
+          <div class="split-image">
+            <svg width="300" height="280" viewBox="0 0 300 280" xmlns="http://www.w3.org/2000/svg">
+              <rect width="300" height="280" rx="12" fill="#f4f4f5"/>
+              <rect x="60" y="30" width="180" height="180" rx="20" fill="#ffffff" stroke="#d4d4d8" stroke-width="1"/>
+              <circle cx="150" cy="110" r="40" fill="#2563eb" opacity="0.1"/>
+              <circle cx="150" cy="110" r="22" fill="#2563eb" opacity="0.25"/>
+              <circle cx="150" cy="110" r="10" fill="#2563eb"/>
+              <rect x="100" y="170" width="100" height="3" rx="1.5" fill="#d4d4d8"/>
+              <rect x="80" y="235" width="140" height="8" rx="4" fill="#d4d4d8"/>
+              <rect x="100" y="252" width="100" height="6" rx="3" fill="#e5e5ea"/>
+            </svg>
+          </div>
+        </div>
+        <div class="footer-bar"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="css-vars">
+  <span class="comment">/* Tabula Theme - CSS Variables */</span><br>
+  <span class="prop">--color-background</span>: <span class="val">#ffffff</span>;<br>
+  <span class="prop">--color-foreground</span>: <span class="val">#1a1a1a</span> (Ink Black);<br>
+  <span class="prop">--color-accent</span>: <span class="val">#2563eb</span> (Signal Blue);<br>
+  <span class="prop">--color-muted</span>: <span class="val">#71717a</span>;<br>
+  <span class="prop">footer</span>: <span class="val">gradient #2563eb → #7c3aed</span>;<br>
+  <span class="prop">h1</span>: <span class="val">center-aligned, 64px</span>;
+</div>
+
+</body>
+</html>

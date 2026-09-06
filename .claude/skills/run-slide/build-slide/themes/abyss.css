@@ -1,0 +1,151 @@
+/* Abyss — 深淵
+ * 深淵を覗くとき、深淵もまたこちらを見ている。闇の中の光
+ */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700&family=Space+Grotesk:wght@400;600;700&display=swap');
+
+section {
+  background-color: #0d0d0d !important;
+  color: #e8e8e8 !important;
+  font-family: 'Space Grotesk', 'Noto Sans JP', sans-serif;
+  font-weight: 400;
+  line-height: 1.65;
+  font-size: 30px;
+  padding: 56px 60px 64px 60px;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+section p, section li, section span { color: #e8e8e8 !important; }
+
+/* Allow syntax highlighting colors inside code blocks */
+section pre span { color: inherit !important; }
+section pre code span { color: inherit !important; }
+
+h1, h2, h3 {
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+  padding: 0;
+  letter-spacing: -0.02em;
+}
+
+h1 {
+  font-size: 52px;
+  line-height: 1.2;
+}
+
+h2 {
+  position: absolute;
+  top: 44px;
+  left: 60px;
+  right: 60px;
+  font-size: 34px;
+  font-weight: 700;
+  padding-bottom: 16px;
+  line-height: 1.25;
+}
+
+h2::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 4px;
+  width: 48px;
+  height: 3px;
+  background-color: #10b981;
+}
+
+h2 + * { margin-top: 105px; }
+
+h3 {
+  color: #10b981;
+  font-size: 30px;
+  margin-top: 28px;
+  margin-bottom: 12px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+ul, ol { padding-left: 32px; }
+li { margin-bottom: 12px; }
+li::marker { color: #10b981; }
+ol li::marker { font-weight: 700; }
+
+/* Footer: disabled */
+footer { display: none; }
+
+/* Lead */
+section.lead {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 100px 80px 60px 80px;
+}
+section.lead h1 { margin-bottom: 20px; text-align: center; }
+section.lead h2 {
+  position: static;
+  font-size: 27px;
+  text-align: center;
+  color: rgba(255,255,255,0.5) !important;
+  padding-bottom: 0;
+  margin-bottom: 24px;
+}
+section.lead h2::after { display: none; }
+section.lead h2 + * { margin-top: 0; }
+section.lead p { font-size: 28px; color: #aaa !important; text-align: center; }
+
+/* Full image */
+section.full-image { padding: 0; }
+
+/* Inline elements */
+strong { color: #10b981; font-weight: 700; }
+code {
+  background-color: #1a1a1a;
+  color: #10b981;
+  padding: 4px 12px;
+  border-radius: 4px;
+  border: 1px solid #2a2a2a;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.85em;
+}
+
+pre {
+  background-color: #111;
+  color: #e8e8e8;
+  padding: 20px 24px;
+  border-radius: 8px;
+  border: 1px solid #2a2a2a;
+  font-family: 'JetBrains Mono', 'Consolas', monospace;
+  font-size: 20px;
+  line-height: 1.5;
+  overflow-x: auto;
+}
+
+pre code {
+  background-color: transparent !important;
+  color: #e8e8e8 !important;
+  padding: 0;
+  border-radius: 0;
+  border: none;
+  font-size: inherit;
+}
+
+blockquote {
+  border-left: 5px solid #10b981;
+  padding: 14px 20px;
+  margin: 16px 0;
+  background-color: #1c1c1c;
+  color: #ccc !important;
+  font-size: 26px;
+  border-radius: 0 6px 6px 0;
+}
+blockquote p { color: #ccc !important; }
+
+table { border-collapse: collapse; width: 100%; margin-top: 12px; background-color: #0d0d0d; font-size: 26px; }
+th { background-color: #1a1a1a !important; color: #10b981 !important; padding: 14px 18px; text-align: left; font-weight: 600; }
+td { padding: 12px 18px; border-bottom: 1px solid #2a2a2a; color: #e8e8e8 !important; background-color: #0d0d0d !important; }
+tr:nth-child(even) td { background-color: #151515 !important; }
+
+a { color: #10b981; text-decoration: none; }

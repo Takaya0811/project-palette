@@ -1,0 +1,210 @@
+/* Sumi — 墨
+ * 一滴の墨が紙に広がり、濃淡が世界を描く。墨絵の静謐
+ */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;600;700&family=Source+Sans+3:wght@300;400;600;700&display=swap');
+
+section {
+  background-color: #f5f6f8 !important;
+  color: #2c3e50 !important;
+  font-family: 'Source Sans 3', 'Noto Sans JP', sans-serif;
+  font-weight: 400;
+  line-height: 1.7;
+  font-size: 30px;
+  padding: 56px 60px 64px 72px;
+}
+
+section p,
+section li,
+section span {
+  color: #2c3e50 !important;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Allow syntax highlighting colors inside code blocks */
+section pre span {
+  color: inherit !important;
+}
+section pre code span {
+  color: inherit !important;
+}
+
+/* Left accent bar on all content slides */
+section::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 5px;
+  background: linear-gradient(180deg, #4a6fa5 0%, #4a6fa5 60%, transparent 100%);
+}
+
+h1, h2, h3 {
+  font-weight: 700;
+  color: #1a1a2e;
+  margin: 0;
+  padding: 0;
+  letter-spacing: -0.02em;
+}
+
+h1 {
+  font-size: 50px;
+  line-height: 1.2;
+  font-weight: 600;
+}
+
+h2 {
+  position: absolute;
+  top: 48px;
+  left: 72px;
+  right: 60px;
+  font-size: 34px;
+  font-weight: 600;
+  padding-bottom: 16px;
+  border-bottom: 2px solid #e2e6ea;
+  line-height: 1.3;
+}
+
+h2::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 56px;
+  height: 3px;
+  background-color: #4a6fa5;
+}
+
+h2 + * {
+  margin-top: 100px;
+}
+
+h3 {
+  color: #7f8c8d;
+  font-size: 26px;
+  font-weight: 400;
+  margin-top: 24px;
+  margin-bottom: 10px;
+  letter-spacing: 0.02em;
+}
+
+ul, ol { padding-left: 24px; }
+li { margin-bottom: 10px; }
+li::marker { color: #4a6fa5; }
+ol li::marker { font-weight: 700; }
+
+/* Footer: disabled */
+footer { display: none; }
+
+/* Lead */
+section.lead {
+  background: linear-gradient(135deg, #1a1a2e 0%, #242444 50%, #1e2d3d 100%) !important;
+  color: #f5f6f8 !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 80px 100px;
+}
+section.lead::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 8px;
+  background: linear-gradient(180deg, #4a6fa5, #7ba7d9 60%, transparent 100%);
+}
+section.lead::after {
+  content: '';
+  position: absolute;
+  right: 100px;
+  bottom: 80px;
+  width: 80px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #4a6fa5);
+}
+section.lead h1 { color: #f5f6f8 !important; margin-bottom: 20px; font-size: 56px; text-align: center; }
+section.lead h2 {
+  position: static;
+  font-size: 25px;
+  text-align: center;
+  color: #b0bec5 !important;
+  padding-bottom: 0;
+  margin-bottom: 24px;
+  border-bottom: none;
+}
+section.lead h2::after { display: none; }
+section.lead h2 + * { margin-top: 0; }
+section.lead p { font-size: 30px; color: #b0bec5 !important; font-weight: 300; text-align: center; }
+section.lead span,
+section.lead li { color: #f5f6f8 !important; }
+section.lead strong { color: #7ba7d9 !important; }
+section.lead h3 { color: #8a9bb0 !important; letter-spacing: 0.02em; font-size: 24px; margin-bottom: 16px; }
+
+/* Full image */
+section.full-image { padding: 0; }
+section.full-image::before { display: none; }
+
+/* Inline elements */
+strong { color: #4a6fa5 !important; font-weight: 700; }
+code {
+  background-color: #e8ecf1;
+  color: #2c3e50;
+  padding: 2px 8px;
+  border-radius: 3px;
+  font-family: 'Menlo', 'Consolas', monospace;
+  font-size: 18px;
+}
+
+pre {
+  background-color: #1a1a2e;
+  color: #e8ecf1;
+  padding: 18px 22px;
+  border-radius: 6px;
+  border-left: 3px solid #4a6fa5;
+  font-family: 'Menlo', 'Consolas', monospace;
+  font-size: 18px;
+  line-height: 1.7;
+  overflow-x: auto;
+}
+
+pre code {
+  background-color: transparent !important;
+  color: #e8ecf1 !important;
+  padding: 0;
+  border-radius: 0;
+  font-size: inherit;
+}
+
+blockquote {
+  border-left: 3px solid #4a6fa5;
+  padding: 16px 24px;
+  margin: 14px 0;
+  color: #5d6d7e !important;
+  font-size: 26px;
+  font-weight: 300;
+  line-height: 1.8;
+  background-color: #eef0f3;
+  border-radius: 0 6px 6px 0;
+}
+
+blockquote p {
+  color: #5d6d7e !important;
+}
+
+table { border-collapse: collapse; width: 100%; margin-top: 8px; background-color: #f5f6f8; font-size: 24px; }
+th { background-color: #1a1a2e !important; color: #f5f6f8 !important; padding: 10px 16px; text-align: left; font-weight: 600; letter-spacing: 0.02em; }
+td { padding: 8px 16px; border-bottom: 1px solid #d5dbe0; background-color: #f5f6f8 !important; }
+tr:nth-child(even) td { background-color: #eef0f3 !important; }
+
+a { color: #4a6fa5; text-decoration: none; font-weight: 600; }
+
+/* Page number */
+section::after {
+  color: #aaa;
+  font-size: 20px;
+  font-weight: 300;
+  bottom: 24px;
+}

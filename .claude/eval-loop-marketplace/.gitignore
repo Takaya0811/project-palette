@@ -1,0 +1,6 @@
+# ローカル実行・テストの成果物
+runs/
+.mso/
+
+# ローカルの Claude Code 設定
+.claude/

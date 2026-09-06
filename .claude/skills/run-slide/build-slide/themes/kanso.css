@@ -1,0 +1,170 @@
+/* Kanso — 簡素
+ * 不要を削ぎ落とし、本質だけを残す。禅の美学
+ */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&family=Inter:wght@300;400;700&display=swap');
+
+section {
+  background-color: #f5f3f0 !important;
+  color: #2c2c2c !important;
+  font-family: 'Inter', 'Noto Sans JP', sans-serif;
+  font-weight: 300;
+  line-height: 1.7;
+  font-size: 30px;
+  padding: 56px 60px 64px 60px;
+}
+
+section p,
+section li,
+section span {
+  color: #2c2c2c !important;
+}
+
+/* Allow syntax highlighting colors inside code blocks */
+section pre span {
+  color: inherit !important;
+}
+section pre code span {
+  color: inherit !important;
+}
+
+h1, h2, h3 {
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0;
+  padding: 0;
+  letter-spacing: -0.02em;
+}
+
+h1 {
+  font-size: 50px;
+  line-height: 1.2;
+  font-weight: 300;
+}
+
+h2 {
+  position: absolute;
+  top: 44px;
+  left: 60px;
+  right: 60px;
+  font-size: 30px;
+  font-weight: 600;
+  padding-bottom: 16px;
+  line-height: 1.25;
+}
+
+h2::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 8px;
+  width: 40px;
+  height: 3px;
+  background-color: #e86c00;
+}
+
+h2 + * {
+  margin-top: 100px;
+}
+
+h3 {
+  color: #8a8a8a;
+  font-size: 26px;
+  font-weight: 400;
+  margin-top: 24px;
+  margin-bottom: 10px;
+  letter-spacing: 0.04em;
+}
+
+ul, ol { padding-left: 24px; }
+li { margin-bottom: 10px; }
+li::marker { color: #e86c00; }
+ol li::marker { font-weight: 700; }
+
+/* Footer: disabled */
+footer { display: none; }
+
+/* Lead */
+section.lead {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 120px 80px 80px 80px;
+  border-bottom: 2px solid #2c2c2c;
+}
+section.lead h1 { margin-bottom: 16px; font-size: 52px; line-height: 1.3; }
+section.lead h2 {
+  position: static;
+  font-size: 25px;
+  text-align: center;
+  color: #8a8a8a !important;
+  padding-bottom: 0;
+  margin-bottom: 24px;
+}
+section.lead h2::after { display: none; }
+section.lead h2 + * { margin-top: 0; }
+section.lead p { font-size: 24px; color: #8a8a8a; font-weight: 300; }
+
+/* Full image */
+section.full-image { padding: 0; }
+
+/* Inline elements */
+strong { color: #e86c00 !important; font-weight: 700; }
+code {
+  background-color: #eae8e4;
+  color: #2c2c2c;
+  padding: 2px 8px;
+  border-radius: 2px;
+  font-family: 'Menlo', 'Consolas', monospace;
+  font-size: 18px;
+}
+
+pre {
+  background-color: #2c2c2c;
+  color: #e8e8e8;
+  padding: 18px 22px;
+  border-radius: 2px;
+  border-left: 3px solid #e86c00;
+  font-family: 'Menlo', 'Consolas', monospace;
+  font-size: 18px;
+  line-height: 1.6;
+  overflow-x: auto;
+}
+
+pre code {
+  background-color: transparent !important;
+  color: #e8e8e8 !important;
+  padding: 0;
+  border-radius: 0;
+  font-size: inherit;
+}
+
+blockquote {
+  border-left: 3px solid #e86c00;
+  padding: 14px 22px;
+  margin: 14px 0;
+  color: #555 !important;
+  font-size: 26px;
+  font-weight: 300;
+  background-color: #efede9;
+  border-radius: 0 3px 3px 0;
+}
+
+blockquote p {
+  color: #555 !important;
+}
+
+table { border-collapse: collapse; width: 100%; margin-top: 8px; background-color: #f5f3f0; font-size: 24px; }
+th { background-color: #2c2c2c !important; color: #f5f3f0 !important; padding: 10px 16px; text-align: left; font-weight: 700; letter-spacing: 0.05em; }
+td { padding: 8px 16px; border-bottom: 1px solid #ddd; background-color: #f5f3f0 !important; }
+tr:nth-child(even) td { background-color: #eeece8 !important; }
+
+a { color: #e86c00; text-decoration: none; }
+
+/* Page number */
+section::after {
+  color: #aaa;
+  font-size: 20px;
+  font-weight: 300;
+  bottom: 24px;
+}
