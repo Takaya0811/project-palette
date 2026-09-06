@@ -1,0 +1,12 @@
+{
+  "project_dir": "output",
+  "name": "fable-5-1",
+  "source": "output/fable-5-1-source.md",
+  "theme": "abyss",
+  "slides": 16,
+  "iteration": 1,
+  "output_contract": {
+    "slide_json": "output/fable-5-1-slide.json",
+    "images_json": "output/fable-5-1-images.json"
+  }
+}
