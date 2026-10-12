@@ -1,0 +1,35 @@
+{
+  "loop_type": "eval",
+  "active": true,
+  "iteration": 0,
+  "max_iterations": 12,
+  "threshold": 70,
+  "started_at": 1790114926,
+  "max_wall_minutes": 360,
+  "ended_reason": null,
+  "session_id": "ed626a57-5828-4992-b633-7178d73aec90",
+  "agent_id": "a7c78b7b778b2a067",
+  "project_dir": "/Users/yoshikawatakashinari/sandbox/project-palette",
+  "task": "",
+  "criteria": "",
+  "generator_skill": "assign-eval-loop-generator",
+  "evaluator_skill": "assign-eval-loop-evaluator",
+  "latest_score": null,
+  "evaluated_iteration": null,
+  "best_score": null,
+  "best_iteration": null,
+  "snapshot_enabled": true,
+  "snapshot_ref_prefix": "refs/eval-loop/ed626a57-5828-4992-b633-7178d73aec90/a7c78b7b778b2a067",
+  "turns_dir": "/Users/yoshikawatakashinari/sandbox/project-palette/.mso/agents/a7c78b7b778b2a067/turns",
+  "phase": "plan",
+  "latest_plan": null,
+  "write_targets": [],
+  "evaluator_history": [
+    {
+      "evaluator": "assign-eval-loop-evaluator",
+      "from_iteration": 0,
+      "to_iteration": null,
+      "reason": "initial"
+    }
+  ]
+}
