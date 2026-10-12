@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>宅建2026 直前チェック</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&family=Zen+Maru+Gothic:wght@500;700;900&display=swap" rel="stylesheet">
+<style>
+  @page { size: A4; margin: 0; }
+  :root {
+    --ink: #2b2b33; --sub: #6b6b76; --line: #d9d4c7; --paper: #fffdf7;
+    --red: #e04848; --blue: #2f7fd1; --green: #2e9b63; --yellow: #fff27a; --pink: #ffd3dc;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #ccc; color: var(--ink);
+    font-family: "Zen Maru Gothic", "Hiragino Maru Gothic ProN", sans-serif; font-weight: 500; }
+  .page { width: 210mm; height: 297mm; padding: 11mm 13mm 10mm; margin: 0 auto 8mm; background: var(--paper);
+    overflow: hidden; position: relative; page-break-after: always;
+    background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size: 7mm 7mm; background-position: -1px -1px; }
+  .page::before { content: ""; position: absolute; inset: 0; background: rgba(255,253,247,.82); }
+  .page > * { position: relative; }
+  .page > footer { position: absolute; }
+  @media print { body { background: none; } .page { margin: 0; } }
+
+  header { display: flex; justify-content: space-between; align-items: flex-end;
+    border-bottom: 3px solid var(--ink); padding-bottom: 2mm; margin-bottom: 4mm; }
+  header h1 { font-family: "Klee One", cursive; font-weight: 600; font-size: 24pt; margin: 0; letter-spacing: .02em; }
+  header .tag { font-size: 9pt; color: var(--sub); text-align: right; }
+  header .no { display: inline-block; background: var(--ink); color: #fff; border-radius: 4mm; padding: 1mm 4mm; font-size: 10pt; margin-bottom: 1mm; }
+
+  h2 { font-family: "Klee One", cursive; font-weight: 600; font-size: 15pt; margin: 3.5mm 0 2mm; }
+  h2 .star { color: #f0a400; font-size: 11pt; margin-left: 2mm; }
+  h2::before { content: "✎ "; color: var(--blue); }
+
+  .mk { background: linear-gradient(transparent 55%, var(--yellow) 55%); font-weight: 700; }
+  .pk { background: linear-gradient(transparent 55%, var(--pink) 55%); font-weight: 700; }
+  .r { color: var(--red); font-weight: 700; } .b { color: var(--blue); font-weight: 700; } .g { color: var(--green); font-weight: 700; }
+  .fig { width: 100%; border-radius: 3mm; border: 1.5px solid var(--ink); display: block; }
+  .row { display: grid; grid-template-columns: 1fr 1fr; gap: 5mm; align-items: start; }
+  .row.r64 { grid-template-columns: 1.15fr 1fr; }
+  .row.img80 { grid-template-columns: 80mm 1fr; }
+  .p2 h2 { margin: 2.6mm 0 1.6mm; }
+  .p2 > footer { bottom: 3mm; }
+
+  table { width: 100%; border-collapse: collapse; font-size: 10pt; background: #fff; }
+  th, td { border: 1.3px solid var(--ink); padding: 1.3mm 2.2mm; vertical-align: middle; }
+  th { background: #eef4fb; font-weight: 700; text-align: left; white-space: nowrap; }
+  td.c { text-align: center; }
+
+  .note { border: 2px dashed var(--blue); border-radius: 3mm; padding: 2mm 3mm; font-size: 9.6pt; background: #f4f9ff; line-height: 1.55; }
+  .trap { border-left: 5px solid var(--red); background: #fff3f3; padding: 1.8mm 3mm; font-size: 9.6pt; line-height: 1.55; margin-top: 2mm; }
+  .trap::before { content: "⚠ ひっかけ注意："; color: var(--red); font-weight: 700; }
+  ul.pts { margin: 0; padding-left: 5mm; font-size: 10pt; line-height: 1.65; }
+  .mini { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3mm; }
+  .card { background: #fff; border: 1.5px solid var(--ink); border-radius: 3mm; padding: 2mm 3mm; font-size: 9.4pt; line-height: 1.5; }
+  .card b.t { display: block; font-family: "Klee One", cursive; font-size: 11pt; margin-bottom: .8mm; }
+  .card .when { font-size: 8.4pt; color: var(--sub); }
+
+  .qa { counter-reset: q; display: grid; grid-template-columns: 1fr 1fr; gap: 2mm 5mm; }
+  .qa div { font-size: 9.4pt; line-height: 1.5; background: #fff; border: 1.3px solid var(--line); border-radius: 2mm; padding: 1.6mm 2.5mm; }
+  .qa .ans { float: right; font-weight: 900; font-size: 12pt; margin-left: 2mm; }
+  .qa .why { display: block; color: var(--sub); font-size: 8.8pt; }
+  footer { position: absolute; bottom: 5mm; left: 13mm; right: 13mm; font-size: 8pt; color: var(--sub); text-align: center; }
+</style>
+</head>
+<body>
+
+<!-- ============ 1枚目：区分所有法 ============ -->
+<section class="page">
+  <header>
+    <div><span class="no">1 / 3</span><h1>法改正① 区分所有法</h1></div>
+    <div class="tag">宅建2026 直前チェック<br>重要度 ★★★★★</div>
+  </header>
+
+  <img class="fig" src="diag-takken2026-01-01.jpg" alt="区分所有法 決議の階段" style="width:118mm;margin:0 auto;">
+
+  <h2>決議要件 早見表<span class="star">★★★★★</span></h2>
+  <table>
+    <tr><th>決議の種類</th><th>改正後の要件</th><th>ここを覚える</th></tr>
+    <tr><th>普通決議</th><td><span class="mk">出席者</span>の過半数</td><td>欠席者は母数に入らない（委任状・議決権行使書は<b>出席</b>扱い）</td></tr>
+    <tr><th>特別決議</th><td><span class="pk">定足数</span>（各過半数の出席）＋出席者の各<b>3/4</b></td><td>共用部分の重大変更／規約の設定・変更・廃止</td></tr>
+    <tr><th>重大変更の緩和</th><td>出席者の各<b>2/3</b></td><td>瑕疵による危険除去・バリアフリー化が目的のとき</td></tr>
+    <tr><th>大規模滅失の復旧</th><td><span class="pk">定足数</span>＋出席者の各<b>2/3</b></td><td>建物価格の<b>1/2超</b>が滅失したとき</td></tr>
+    <tr><th>建替え決議</th><td>全体の各<b class="r">4/5</b><br><span style="font-size:9pt">（客観的事情あり→<b>3/4</b>）</span></td><td><span class="r">出席者基準ではない！</span><br>事情＝耐震・防火不足、外壁剥落、配管腐食、バリアフリー不適合</td></tr>
+    <tr><th>マンション再生決議<br><span style="font-size:8.5pt">（新設）</span></th><td>原則 各<b>4/5</b>／事情あり<b>3/4</b><br>政令指定災害の被災<b>2/3</b></td><td>建物更新・一括売却・敷地売却・取壊しを多数決で選べる</td></tr>
+  </table>
+
+  <div class="row" style="margin-top:4mm;">
+    <div>
+      <h2 style="margin-top:0">所在等不明の区分所有者</h2>
+      <ul class="pts">
+        <li><span class="mk">裁判所の手続</span>を経て母数から除外できる</li>
+        <li>管理組合だけで除外は<span class="r">×</span></li>
+      </ul>
+      <h2>建替え決議後の賃貸借</h2>
+      <ul class="pts">
+        <li>終了請求から<span class="mk">6か月</span>で終了</li>
+        <li>賃借人へ<b>金銭補償</b>が必要／受けるまで明渡し拒否OK</li>
+      </ul>
+    </div>
+    <div>
+      <h2 style="margin-top:0">その他の改正</h2>
+      <ul class="pts">
+        <li>所有者不明・管理不全の専有部分／共用部分の管理制度</li>
+        <li>海外居住者の<b>国内管理人</b>制度</li>
+        <li>招集通知に<b>議案の要領</b>を記載</li>
+        <li>招集通知期間は規約で<b>1週間未満にできない</b></li>
+      </ul>
+      <div class="trap">決議成立と<b>同時に</b>賃貸借が終わるわけではない</div>
+    </div>
+  </div>
+  <footer>出典：宅建テラス「2026年 法改正まとめ」をもとに作成</footer>
+</section>
+
+<!-- ============ 2枚目：登記・業法・税 ============ -->
+<section class="page p2">
+  <header>
+    <div><span class="no">2 / 3</span><h1>法改正② 登記・業法・税</h1></div>
+    <div class="tag">宅建2026 直前チェック</div>
+  </header>
+
+  <div class="row img80">
+    <div>
+      <h2 style="margin-top:0">変更登記の義務化<span class="star">★★★★★</span></h2>
+      <img class="fig" src="diag-takken2026-02-01.jpg" alt="変更登記と相続登記の比較">
+    </div>
+    <div>
+      <table style="margin-top:0">
+        <tr><th></th><th>変更登記</th><th>相続登記</th></tr>
+        <tr><th>期限</th><td class="c"><span class="mk">2年</span></td><td class="c">3年</td></tr>
+        <tr><th>過料</th><td class="c"><span class="mk">5万円</span>以下</td><td class="c">10万円以下</td></tr>
+        <tr><th>施行</th><td class="c">2026.4.1</td><td class="c">2024.4.1</td></tr>
+      </table>
+      <div class="note" style="margin-top:2mm">施行前の変更分は <b>2028年3月31日</b>までに申請</div>
+      <ul class="pts" style="margin-top:2mm; font-size:9.4pt">
+        <li><b>スマート変更登記</b>：登記官が職権で変更（義務は残る）</li>
+        <li><b>死亡の符号</b>：表示されても相続登記完了ではない</li>
+        <li><b>所有不動産記録証明</b>：2026.2.2開始・相続人も請求可</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>宅建業法まわり</h2>
+  <div class="row">
+    <div class="card"><b class="t">管理業者管理者方式の重説 ★★★★★</b>
+      35条の説明事項に追加（2026.4.1〜）<br>
+      売買・交換＝<span class="mk">説明必要</span>／貸借＝<span class="r">不要</span><br>
+      <span class="when">理由：賃借人は管理組合の構成員ではないから</span></div>
+    <div class="card"><b class="t">拘禁刑に一本化 ★★★☆☆</b>
+      懲役・禁錮 → <b>拘禁刑</b>（2025.6.1〜）<br>
+      「禁錮以上の刑」→「<b>拘禁刑以上の刑</b>」<br>
+      欠格の「執行終了等から<span class="mk">5年</span>」は<b>変わらない</b></div>
+  </div>
+
+  <h2>税の改正<span class="star">★★★★★</span></h2>
+  <div class="row img80">
+    <img class="fig" src="diag-takken2026-04-01.jpg" alt="不動産取得税の免税点アップ">
+    <div>
+      <table>
+        <tr><th>不動産取得税 免税点</th><th>改正後</th></tr>
+        <tr><th>土地</th><td>10万 → <span class="mk">16万円</span>未満</td></tr>
+        <tr><th>家屋（建築）</th><td>23万 → <span class="mk">66万円</span>未満</td></tr>
+        <tr><th>家屋（その他）</th><td>12万 → <span class="mk">34万円</span>未満</td></tr>
+      </table>
+      <div class="trap">判定は<b>税額</b>ではなく<b>価格</b></div>
+      <div class="trap">固定資産税の免税点UP（家屋30万等）は<b>2027年度〜</b>で別物</div>
+    </div>
+  </div>
+  <table style="margin-top:2.5mm; font-size:9.4pt">
+    <tr><th>新築住宅の床面積</th><th>改正前</th><th>改正後</th></tr>
+    <tr><th>不動産取得税の特例</th><td>原則50〜240㎡<br>戸建て以外の貸家は40㎡〜</td><td>種類を問わず<span class="mk">40〜240㎡</span><br><span style="font-size:8.6pt">※東京23区の一部の地域は下限50㎡のまま</span></td></tr>
+    <tr><th>固定資産税1/2減額</th><td>原則50〜280㎡<br>戸建て以外の貸家は40〜280㎡</td><td><span class="mk">40〜240㎡</span>（120㎡分まで）<br><span style="font-size:8.6pt">一般3年度／3階建て以上の中高層耐火5年度</span></td></tr>
+  </table>
+
+  <h2>サッと確認（その他）</h2>
+  <div class="mini">
+    <div class="card"><b class="t">公正証書遺言 ★4</b>2025.10.1〜 Web嘱託・電子化OK<br><span class="when">Web会議は条件付き</span>／<span class="r">証人2人・口授は今も必要</span></div>
+    <div class="card"><b class="t">民法（家族）★1</b>共同親権が可能に<br>財産分与 <b>2年→5年</b></div>
+    <div class="card"><b class="t">住宅金融支援機構 ★2</b>直接融資にマンション建物更新・除却資金を追加</div>
+  </div>
+  <p style="font-size:9.2pt; margin:2mm 0 0;"><b>法令上の制限 ★1：</b>森林法・森林経営管理法・港湾法の改正で、35条重説の対象条文が変更（整理のみ）</p>
+  <footer>出典：宅建テラス「2026年 法改正まとめ」をもとに作成</footer>
+</section>
+
+<!-- ============ 3枚目：統計 ============ -->
+<section class="page">
+  <header>
+    <div><span class="no">3 / 3</span><h1>統計（令和8年対策）</h1></div>
+    <div class="tag">宅建2026 直前チェック<br>毎年1問 確実に取る！</div>
+  </header>
+
+  <img class="fig" src="diag-takken2026-03-01.jpg" alt="語呂合わせ 減少建築を横取り" style="width:104mm;margin:0 auto;">
+  <div class="note" style="margin-top:2mm; text-align:center; font-size:11pt;">
+    語呂 <b style="font-size:13pt">「<span class="r">減少</span>建築を<span class="b">横</span>取り」</b>
+    ＝ 建築着工は<span class="r">減少</span>／土地取引件数は<span class="b">横ばい</span>／<span class="g">それ以外は増加</span>
+  </div>
+
+  <h2>数字はこれだけ</h2>
+  <table>
+    <tr><th>統計</th><th>数字</th><th>傾向</th></tr>
+    <tr><th>法人企業統計<br><span style="font-size:8.5pt">（令和6年度）</span></th>
+      <td>売上高 約<b>58.2兆円</b>（+4.2%）<br>営業利益 約7.1兆円（+12.9%）／経常利益 約7.9兆円（+8.7%）<br>売上高経常利益率 <span class="mk">13.6%</span></td>
+      <td><span class="g">増加</span> 2年連続<br><span style="font-size:9pt">利益率は5年連続↑</span></td></tr>
+    <tr><th>建築着工統計<br><span style="font-size:8.5pt">（令和7年）</span></th>
+      <td>新設住宅 <b>74万戸</b>（<span class="r">−6.5%</span>）<br>持家20.1万（−7.7%）・貸家32.4万（−5.0%）・分譲20.8万（−7.6%）</td>
+      <td><span class="r">減少</span> 3年連続<br><span style="font-size:9pt">持家だけ4年連続</span></td></tr>
+    <tr><th>地価公示<br><span style="font-size:8.5pt">（令和8年3月）</span></th>
+      <td>全国・三大都市圏・地方圏 × 全用途・住宅地・商業地</td>
+      <td><span class="g">すべて上昇</span><br>5年連続</td></tr>
+    <tr><th>宅建業者数<br><span style="font-size:8.5pt">（令和7年3月末）</span></th>
+      <td><span class="mk">13万2,291</span>業者</td><td><span class="g">増加</span> 11年連続</td></tr>
+    <tr><th>土地取引件数<br><span style="font-size:8.5pt">（令和7年）</span></th>
+      <td>約<span class="mk">130万件</span>（売買による所有権移転登記）</td><td><span class="b">ほぼ横ばい</span></td></tr>
+    <tr><th>宅地面積<br><span style="font-size:8.5pt">（令和5年）</span></th>
+      <td>住宅地・工業用地等 約<span class="mk">199万ha</span></td><td></td></tr>
+  </table>
+
+  <h2>一問一答（答えを隠して解こう）</h2>
+  <div class="qa">
+    <div><span class="ans r">×</span>① 住宅地の全国平均は下落に転じた<span class="why">→ 5年連続で上昇</span></div>
+    <div><span class="ans r">×</span>② 不動産業の売上高は9.6%減少<span class="why">→ 4.2%増加</span></div>
+    <div><span class="ans r">×</span>③ 新設住宅着工は4.6%増加<span class="why">→ 6.5%減少（分譲も7.6%減）</span></div>
+    <div><span class="ans b">○</span>④ 土地取引件数は130万件でほぼ横ばい<span class="why">→ そのとおり</span></div>
+    <div><span class="ans r">×</span>⑤ 宅建業者数は14万5,000超<span class="why">→ 13万2,291</span></div>
+    <div><span class="ans r">×</span>⑥ 宅地は約341万haで大きく減少<span class="why">→ 約199万ha</span></div>
+  </div>
+  <footer>出典：ゆーき大学「統計2026」p.1–4 をもとに作成</footer>
+</section>
+
+</body>
+</html>
